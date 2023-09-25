@@ -26,7 +26,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+static GPIO_InitTypeDef GPIO_InitStruct;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -90,6 +90,13 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull  = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Pin = GPIO_PIN_0; // pin D04
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
 
   /* USER CODE END Init */
 
@@ -106,6 +113,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  	HAL_GPIO_TogglePin(GPIO_PB0, GPIO_PIN_0);
+	    HAL_Delay(1000);
+	    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+	    HAL_Delay(2000);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

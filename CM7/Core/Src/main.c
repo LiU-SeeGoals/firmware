@@ -26,6 +26,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+static GPIO_InitTypeDef GPIO_InitStruct;
 
 /* USER CODE END PTD */
 
@@ -93,6 +94,12 @@ int main(void)
   MPU_Config();
 
   /* USER CODE BEGIN Init */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull  = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Pin = GPIO_PIN_14; // pin D04
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /* USER CODE END Init */
 
@@ -130,6 +137,10 @@ Error_Handler();
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_14, GPIO_PIN_SET);
+	  HAL_Delay(1000);
+	  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_14, GPIO_PIN_RESET);
+	  HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
   }
