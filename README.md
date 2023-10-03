@@ -3,7 +3,7 @@
 # Reqirements
 
 ## GCC arm cross compiler
-Since we are building for another processor than on our PC we need an an arm cross compiler for c
+Since we are building for another processor than on our PC we need an arm cross compiler for c
 
 on Ubuntu you can install
 ```
