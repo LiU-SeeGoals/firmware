@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "NRF24L01.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +63,9 @@ static void MX_SPI1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+uint8_t TX_ADDR[] = {0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
+uint8_t TX_DATA[] = "Hello World\n";
 
 /* USER CODE END 0 */
 
@@ -129,6 +132,9 @@ Error_Handler();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
+  NRF24_Init();
+  NRF24_TXMode(TX_ADDR, 10);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -136,6 +142,11 @@ Error_Handler();
   while (1)
   {
     /* USER CODE END WHILE */
+
+    if (NRF24_Transmit(TX_DATA) == 1) {
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+    }
+    HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
   }
@@ -223,7 +234,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -310,6 +321,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 0);
   }
   /* USER CODE END Error_Handler_Debug */
 }

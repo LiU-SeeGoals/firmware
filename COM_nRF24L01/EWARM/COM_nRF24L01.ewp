@@ -2207,9 +2207,15 @@
       </file>
       <file>
         <name>$PROJ_DIR$/../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c</name>
+        <excluded>
+          <configuration>COM_nRF24L01_CM4</configuration>
+        </excluded>
       </file>
       <file>
         <name>$PROJ_DIR$/../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c</name>
+        <excluded>
+          <configuration>COM_nRF24L01_CM4</configuration>
+        </excluded>
       </file>
       <file>
         <name>$PROJ_DIR$/../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c</name>
