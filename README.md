@@ -1,8 +1,14 @@
 
+# How to use
+
+## Adding files
+
+When adding .c files to the project make sure they are added to MakeFile for /MakeFile/CM7/MakFile or /MakeFile/CM4/MakeFile (CM7 is default)
+
 # Reqirements
 
 ## GCC arm cross compiler
-Since we are building for another processor than on our PC we need an arm cross compiler for c
+Since the devboard cpu has different architecture (arm?) we need a cross compiler (your default gcc compiler will most likely not work)
 
 on Ubuntu you can install
 ```
@@ -14,7 +20,12 @@ sudo apt install gcc-arm-none-eabi
 To build the project you need the libraries required.
 You can probably find them on the internet however the project was created with
 ```STM32CUBEMX```
-so to get the libraries generate a new project for the ```STM32H755ZI-Q``` processor and the installation will ask you to also install these dependencies.
+
+Open the .ioc file with ```STM32CUBEMX``` and press generate code this will then prompt to install the required dependencies (STMCUBE32) 
+
+> If this does not work for some reason you can try
+
+So to get the libraries generate a new project for the ```STM32H755ZI-Q``` processor and the installation will ask you to also install these dependencies.
 
 ## Making
 
@@ -24,11 +35,13 @@ Now you can build the project
 cd cube/toebite/makefile/
 make
 ```
+
 This will generete the .hex and .bin files
 
->Depending on where ```STM32CUBEMX``` installed the libraries there might be some linking issues with the makefile, so make sure to take a look at the paths if you cannot make
+>Depending on where ```STM32CUBEMX``` installed the libraries there might be some linking issues with the makefile, so make sure to take a look at the paths in the MakeFiles if it does not work
 
 ## programming 
+
 There are two option one for command line and one magic gui (that works)
 
 ### Terminal based
