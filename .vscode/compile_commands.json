@@ -1,0 +1,33 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/arm-none-eabi-gcc",
+      "-c",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-DCORE_CM7",
+      "-DUSE_HAL_DRIVER",
+      "-DSTM32H755xx",
+      "-I../../CM7/Core/Inc",
+      "-I../../Drivers/STM32H7xx_HAL_Driver/Inc",
+      "-I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
+      "-I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include",
+      "-I../../Drivers/CMSIS/Include",
+      "-Og",
+      "-Wall",
+      "-fdata-sections",
+      "-ffunction-sections",
+      "-g",
+      "-gdwarf-2",
+      "-Wa,-a,-ad,-alms=build/main.lst",
+      "-o",
+      "build/main.o",
+      "../../CM7/Core/Src/main.c"
+    ],
+    "directory": "/home/anton/stmtest/cube/toebite/Makefile/CM7",
+    "file": "/home/anton/stmtest/cube/toebite/CM7/Core/Src/main.c",
+    "output": "/home/anton/stmtest/cube/toebite/Makefile/CM7/build/main.o"
+  }
+]
