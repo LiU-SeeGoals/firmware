@@ -1,33 +1,33 @@
-ARM GAS  /tmp/ccIjHN1v.s 			page 1
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 1
 
 
    1              		.cpu cortex-m7
-   2              		.eabi_attribute 27, 1
-   3              		.eabi_attribute 28, 1
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.file	"main.c"
-  14              		.text
-  15              	.Ltext0:
-  16              		.cfi_sections	.debug_frame
-  17              		.section	.text.main,"ax",%progbits
-  18              		.align	1
-  19              		.global	main
-  20              		.arch armv7e-m
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	main:
-  27              	.LFB132:
-  28              		.file 1 "../../CM4/Core/Src/main.c"
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../CM4/Core/Src/main.c"
+  20              		.section	.text.main,"ax",%progbits
+  21              		.align	1
+  22              		.global	main
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	main:
+  28              	.LFB132:
    1:../../CM4/Core/Src/main.c **** /* USER CODE BEGIN Header */
    2:../../CM4/Core/Src/main.c **** /**
    3:../../CM4/Core/Src/main.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
   28:../../CM4/Core/Src/main.c **** /* USER CODE BEGIN PTD */
   29:../../CM4/Core/Src/main.c **** 
   30:../../CM4/Core/Src/main.c **** /* USER CODE END PTD */
-ARM GAS  /tmp/ccIjHN1v.s 			page 2
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 2
 
 
   31:../../CM4/Core/Src/main.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
   73:../../CM4/Core/Src/main.c ****   /*HW semaphore Clock enable*/
   74:../../CM4/Core/Src/main.c ****   __HAL_RCC_HSEM_CLK_ENABLE();
   41              		.loc 1 74 3 view .LVU1
-ARM GAS  /tmp/ccIjHN1v.s 			page 3
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 3
 
 
   42              	.LBB4:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
   89:../../CM4/Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   90:../../CM4/Core/Src/main.c ****   HAL_Init();
   82              		.loc 1 90 3 is_stmt 1 view .LVU12
-ARM GAS  /tmp/ccIjHN1v.s 			page 4
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 4
 
 
   83 004c FFF7FEFF 		bl	HAL_Init
@@ -233,15 +233,14 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
  109              		.syntax unified
  110              		.thumb
  111              		.thumb_func
- 112              		.fpu fpv4-sp-d16
- 114              	Error_Handler:
- 115              	.LFB133:
+ 113              	Error_Handler:
+ 114              	.LFB133:
  113:../../CM4/Core/Src/main.c ****   /* USER CODE END 3 */
  114:../../CM4/Core/Src/main.c **** }
-ARM GAS  /tmp/ccIjHN1v.s 			page 5
-
-
  115:../../CM4/Core/Src/main.c **** 
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 5
+
+
  116:../../CM4/Core/Src/main.c **** /* USER CODE BEGIN 4 */
  117:../../CM4/Core/Src/main.c **** 
  118:../../CM4/Core/Src/main.c **** /* USER CODE END 4 */
@@ -252,19 +251,19 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
  123:../../CM4/Core/Src/main.c ****   */
  124:../../CM4/Core/Src/main.c **** void Error_Handler(void)
  125:../../CM4/Core/Src/main.c **** {
- 116              		.loc 1 125 1 is_stmt 1 view -0
- 117              		.cfi_startproc
- 118              		@ Volatile: function does not return.
- 119              		@ args = 0, pretend = 0, frame = 0
- 120              		@ frame_needed = 0, uses_anonymous_args = 0
- 121              		@ link register save eliminated.
+ 115              		.loc 1 125 1 is_stmt 1 view -0
+ 116              		.cfi_startproc
+ 117              		@ Volatile: function does not return.
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		@ link register save eliminated.
  126:../../CM4/Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
  127:../../CM4/Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
  128:../../CM4/Core/Src/main.c ****   __disable_irq();
- 122              		.loc 1 128 3 view .LVU18
- 123              	.LBB5:
- 124              	.LBI5:
- 125              		.file 2 "../../Drivers/CMSIS/Include/cmsis_gcc.h"
+ 121              		.loc 1 128 3 view .LVU18
+ 122              	.LBB5:
+ 123              	.LBI5:
+ 124              		.file 2 "../../Drivers/CMSIS/Include/cmsis_gcc.h"
    1:../../Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:../../Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:../../Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -298,10 +297,10 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
   31:../../Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:../../Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:../../Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccIjHN1v.s 			page 6
-
-
   34:../../Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 6
+
+
   35:../../Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
   36:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:../../Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -358,10 +357,10 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
   88:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
-ARM GAS  /tmp/ccIjHN1v.s 			page 7
-
-
   91:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 7
+
+
   92:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:../../Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   94:../../Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
@@ -418,10 +417,10 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
  145:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   
  146:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
  147:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
-ARM GAS  /tmp/ccIjHN1v.s 			page 8
-
-
  148:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 8
+
+
  149:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
  150:../../Drivers/CMSIS/Include/cmsis_gcc.h **** 
  151:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
@@ -478,54 +477,56 @@ ARM GAS  /tmp/ccIjHN1v.s 			page 1
  202:../../Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  203:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
  204:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
-ARM GAS  /tmp/ccIjHN1v.s 			page 9
-
-
  205:../../Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 9
+
+
  206:../../Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  207:../../Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 126              		.loc 2 207 27 view .LVU19
- 127              	.LBB6:
+ 125              		.loc 2 207 27 view .LVU19
+ 126              	.LBB6:
  208:../../Drivers/CMSIS/Include/cmsis_gcc.h **** {
  209:../../Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 128              		.loc 2 209 3 view .LVU20
- 129              		.syntax unified
- 130              	@ 209 "../../Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 131 0000 72B6     		cpsid i
- 132              	@ 0 "" 2
- 133              		.thumb
- 134              		.syntax unified
- 135              	.L10:
- 136              	.LBE6:
- 137              	.LBE5:
+ 127              		.loc 2 209 3 view .LVU20
+ 128              		.syntax unified
+ 129              	@ 209 "../../Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 130 0000 72B6     		cpsid i
+ 131              	@ 0 "" 2
+ 132              		.thumb
+ 133              		.syntax unified
+ 134              	.L10:
+ 135              	.LBE6:
+ 136              	.LBE5:
  129:../../CM4/Core/Src/main.c ****   while (1)
- 138              		.loc 1 129 3 discriminator 1 view .LVU21
+ 137              		.loc 1 129 3 discriminator 1 view .LVU21
  130:../../CM4/Core/Src/main.c ****   {
  131:../../CM4/Core/Src/main.c ****   }
- 139              		.loc 1 131 3 discriminator 1 view .LVU22
+ 138              		.loc 1 131 3 discriminator 1 view .LVU22
  129:../../CM4/Core/Src/main.c ****   while (1)
- 140              		.loc 1 129 9 discriminator 1 view .LVU23
- 141 0002 FEE7     		b	.L10
- 142              		.cfi_endproc
- 143              	.LFE133:
- 145              		.text
- 146              	.Letext0:
- 147              		.file 3 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
- 148              		.file 4 "../../Drivers/CMSIS/Include/core_cm4.h"
- 149              		.file 5 "../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h755xx.h"
- 150              		.file 6 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h"
- 151              		.file 7 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
- 152              		.file 8 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h"
-ARM GAS  /tmp/ccIjHN1v.s 			page 10
+ 139              		.loc 1 129 9 discriminator 1 view .LVU23
+ 140 0002 FEE7     		b	.L10
+ 141              		.cfi_endproc
+ 142              	.LFE133:
+ 144              		.text
+ 145              	.Letext0:
+ 146              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 147              		.file 4 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 148              		.file 5 "../../Drivers/CMSIS/Include/core_cm4.h"
+ 149              		.file 6 "../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h755xx.h"
+ 150              		.file 7 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h"
+ 151              		.file 8 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
+ 152              		.file 9 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h"
+ 153              		.file 10 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h"
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s 			page 10
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 main.c
-     /tmp/ccIjHN1v.s:18     .text.main:0000000000000000 $t
-     /tmp/ccIjHN1v.s:26     .text.main:0000000000000000 main
-     /tmp/ccIjHN1v.s:100    .text.main:0000000000000064 $d
-     /tmp/ccIjHN1v.s:107    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccIjHN1v.s:114    .text.Error_Handler:0000000000000000 Error_Handler
+                            *ABS*:00000000 main.c
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s:21     .text.main:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s:27     .text.main:00000000 main
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s:100    .text.main:00000064 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s:107    .text.Error_Handler:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cc95w2F2.s:113    .text.Error_Handler:00000000 Error_Handler
 
 UNDEFINED SYMBOLS
 HAL_HSEM_ActivateNotification

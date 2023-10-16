@@ -27,7 +27,7 @@ void CE_Enable(void) {
 }
 
 
-void CS_Disable(void) {
+void CE_Disable(void) {
     HAL_GPIO_WritePin(NRF24_CE_PORT, NRF24_CE_PIN, GPIO_PIN_RESET);
 }
 

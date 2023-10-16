@@ -3,7 +3,8 @@
 #ifndef INC_NRF24L01_H_
 #define INC_NRF24L01_H_
 
-#include "stm32f4xx_hal.h"
+#include "stm32h7xx_hal.h"
+#include "main.h"
 
 void NRF24_Init(void);
 void NRF24_TXMode(uint8_t *Address, uint8_t channel);

@@ -108,10 +108,6 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-    if (NRF24_Transmit(TX_DATA) == 1) {
-      HAL_GPIO_TogglePin(GPIO)
-    }
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
