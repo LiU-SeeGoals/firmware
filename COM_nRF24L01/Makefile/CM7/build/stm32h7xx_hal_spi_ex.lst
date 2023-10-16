@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
   28:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****   * @{
   29:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****   */
   30:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c **** 
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 2
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 2
 
 
   31:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c **** /** @defgroup SPIEx SPIEx
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
   37              		.cfi_def_cfa_offset 4
   38              		.cfi_offset 4, -4
   39 0002 83B0     		sub	sp, sp, #12
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 3
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 3
 
 
   40              	.LCFI1:
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
   83:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****     tmpreg = hspi->Instance->RXDR;
   75              		.loc 1 83 11 is_stmt 0 view .LVU17
   76 001e 0433     		adds	r3, r3, #4
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 4
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 4
 
 
   77              	.LVL5:
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  110 0046 00E0     		b	.L5
  111              	.L10:
   91:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****       }
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 5
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 5
 
 
  112              		.loc 1 91 16 view .LVU30
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  117:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c **** 
  118:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****   /* Process Locked */
  119:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****   __HAL_LOCK(hspi);
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 6
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 6
 
 
  154              		.loc 1 119 3 view .LVU36
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  145:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c **** 
  146:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****   hspi->State = HAL_SPI_STATE_READY;
  183              		.loc 1 146 3 view .LVU48
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 7
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 7
 
 
  184              		.loc 1 146 15 is_stmt 0 view .LVU49
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  224 0056 42F48032 		orr	r2, r2, #65536
  225 005a 0A60     		str	r2, [r1]
  143:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****   }
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 8
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 8
 
 
  226              		.loc 1 143 5 view .LVU67
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  262              		.loc 1 168 3 discriminator 2 view .LVU74
  263 0008 0123     		movs	r3, #1
  264 000a 80F88030 		strb	r3, [r0, #128]
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 9
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 9
 
 
  265              		.loc 1 168 3 discriminator 2 view .LVU75
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  298 0032 9960     		str	r1, [r3, #8]
  189:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****     MODIFY_REG(hspi->Instance->CFG1, SPI_CFG1_UDRCFG, UnderrunBehaviour);
  299              		.loc 1 189 5 is_stmt 1 view .LVU90
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 10
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 10
 
 
  300 0034 0168     		ldr	r1, [r0]
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  331 0054 0123     		movs	r3, #1
  332 0056 80F88130 		strb	r3, [r0, #129]
  176:../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c ****     return errorcode;
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 11
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 11
 
 
  333              		.loc 1 176 5 is_stmt 1 view .LVU102
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  376              	.L27:
  377              	.LCFI7:
  378              		.cfi_def_cfa_offset 0
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 12
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 12
 
 
  379              		.cfi_restore 4
@@ -678,17 +678,17 @@ ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 1
  393              		.file 5 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h"
  394              		.file 6 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h"
  395              		.file 7 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h"
-ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s 			page 13
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32h7xx_hal_spi_ex.c
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:20     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:26     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:130    .text.HAL_SPIEx_FlushRxFifo:00000054 $d
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:136    .text.HAL_SPIEx_EnableLockConfiguration:00000000 $t
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:142    .text.HAL_SPIEx_EnableLockConfiguration:00000000 HAL_SPIEx_EnableLockConfiguration
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:242    .text.HAL_SPIEx_ConfigureUnderrun:00000000 $t
-/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccmvECmb.s:248    .text.HAL_SPIEx_ConfigureUnderrun:00000000 HAL_SPIEx_ConfigureUnderrun
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:20     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:26     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:130    .text.HAL_SPIEx_FlushRxFifo:00000054 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:136    .text.HAL_SPIEx_EnableLockConfiguration:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:142    .text.HAL_SPIEx_EnableLockConfiguration:00000000 HAL_SPIEx_EnableLockConfiguration
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:242    .text.HAL_SPIEx_ConfigureUnderrun:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//ccsEwbBg.s:248    .text.HAL_SPIEx_ConfigureUnderrun:00000000 HAL_SPIEx_ConfigureUnderrun
 
 NO UNDEFINED SYMBOLS
