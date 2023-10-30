@@ -9,6 +9,11 @@ on Ubuntu you can install
 sudo apt install gcc-arm-none-eabi
 ```
 
+NOTE: If internal errors when using ide debugger, install the following to solve issue:
+```
+sudo apt-get install libncurses5
+```
+
 ## stm32cube library
 
 To build the project you need the libraries required.
