@@ -1,0 +1,1766 @@
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"NRF24L01.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "../../../COM_NRF24L01/NRF24L01.c"
+  19              		.section	.text.CS_Select,"ax",%progbits
+  20              		.align	1
+  21              		.global	CS_Select
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	CS_Select:
+  27              	.LFB144:
+   1:../../../COM_NRF24L01/NRF24L01.c **** 
+   2:../../../COM_NRF24L01/NRF24L01.c **** #include "stm32h7xx_hal.h"
+   3:../../../COM_NRF24L01/NRF24L01.c **** #include "NRF24L01.h"
+   4:../../../COM_NRF24L01/NRF24L01.c **** #include "port_settings.h"
+   5:../../../COM_NRF24L01/NRF24L01.c **** 
+   6:../../../COM_NRF24L01/NRF24L01.c **** extern SPI_HandleTypeDef hspi1;
+   7:../../../COM_NRF24L01/NRF24L01.c **** #define NRF24_SPI &hspi1
+   8:../../../COM_NRF24L01/NRF24L01.c **** 
+   9:../../../COM_NRF24L01/NRF24L01.c **** 
+  10:../../../COM_NRF24L01/NRF24L01.c **** void CS_Select (void)
+  11:../../../COM_NRF24L01/NRF24L01.c **** {
+  28              		.loc 1 11 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  12:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_GPIO_WritePin(NRF24_CSN_PORT, NRF24_CSN_PIN, GPIO_PIN_RESET);
+  37              		.loc 1 12 2 view .LVU1
+  38 0002 0022     		movs	r2, #0
+  39 0004 4FF48041 		mov	r1, #16384
+  40 0008 0148     		ldr	r0, .L3
+  41 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  42              	.LVL0:
+  13:../../../COM_NRF24L01/NRF24L01.c **** }
+  43              		.loc 1 13 1 is_stmt 0 view .LVU2
+  44 000e 08BD     		pop	{r3, pc}
+  45              	.L4:
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 2
+
+
+  46              		.align	2
+  47              	.L3:
+  48 0010 000C0258 		.word	1476529152
+  49              		.cfi_endproc
+  50              	.LFE144:
+  52              		.section	.text.CS_UnSelect,"ax",%progbits
+  53              		.align	1
+  54              		.global	CS_UnSelect
+  55              		.syntax unified
+  56              		.thumb
+  57              		.thumb_func
+  59              	CS_UnSelect:
+  60              	.LFB145:
+  14:../../../COM_NRF24L01/NRF24L01.c **** 
+  15:../../../COM_NRF24L01/NRF24L01.c **** void CS_UnSelect (void)
+  16:../../../COM_NRF24L01/NRF24L01.c **** {
+  61              		.loc 1 16 1 is_stmt 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65 0000 08B5     		push	{r3, lr}
+  66              	.LCFI1:
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 3, -8
+  69              		.cfi_offset 14, -4
+  17:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_GPIO_WritePin(NRF24_CSN_PORT, NRF24_CSN_PIN, GPIO_PIN_SET);
+  70              		.loc 1 17 2 view .LVU4
+  71 0002 0122     		movs	r2, #1
+  72 0004 4FF48041 		mov	r1, #16384
+  73 0008 0148     		ldr	r0, .L7
+  74 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  75              	.LVL1:
+  18:../../../COM_NRF24L01/NRF24L01.c **** }
+  76              		.loc 1 18 1 is_stmt 0 view .LVU5
+  77 000e 08BD     		pop	{r3, pc}
+  78              	.L8:
+  79              		.align	2
+  80              	.L7:
+  81 0010 000C0258 		.word	1476529152
+  82              		.cfi_endproc
+  83              	.LFE145:
+  85              		.section	.text.CE_Enable,"ax",%progbits
+  86              		.align	1
+  87              		.global	CE_Enable
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  92              	CE_Enable:
+  93              	.LFB146:
+  19:../../../COM_NRF24L01/NRF24L01.c **** 
+  20:../../../COM_NRF24L01/NRF24L01.c **** 
+  21:../../../COM_NRF24L01/NRF24L01.c **** void CE_Enable (void)
+  22:../../../COM_NRF24L01/NRF24L01.c **** {
+  94              		.loc 1 22 1 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 3
+
+
+  98 0000 08B5     		push	{r3, lr}
+  99              	.LCFI2:
+ 100              		.cfi_def_cfa_offset 8
+ 101              		.cfi_offset 3, -8
+ 102              		.cfi_offset 14, -4
+  23:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_GPIO_WritePin(NRF24_CE_PORT, NRF24_CE_PIN, GPIO_PIN_SET);
+ 103              		.loc 1 23 2 view .LVU7
+ 104 0002 0122     		movs	r2, #1
+ 105 0004 4FF40041 		mov	r1, #32768
+ 106 0008 0148     		ldr	r0, .L11
+ 107 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 108              	.LVL2:
+  24:../../../COM_NRF24L01/NRF24L01.c **** }
+ 109              		.loc 1 24 1 is_stmt 0 view .LVU8
+ 110 000e 08BD     		pop	{r3, pc}
+ 111              	.L12:
+ 112              		.align	2
+ 113              	.L11:
+ 114 0010 000C0258 		.word	1476529152
+ 115              		.cfi_endproc
+ 116              	.LFE146:
+ 118              		.section	.text.CE_Disable,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	CE_Disable
+ 121              		.syntax unified
+ 122              		.thumb
+ 123              		.thumb_func
+ 125              	CE_Disable:
+ 126              	.LFB147:
+  25:../../../COM_NRF24L01/NRF24L01.c **** 
+  26:../../../COM_NRF24L01/NRF24L01.c **** void CE_Disable (void)
+  27:../../../COM_NRF24L01/NRF24L01.c **** {
+ 127              		.loc 1 27 1 is_stmt 1 view -0
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131 0000 08B5     		push	{r3, lr}
+ 132              	.LCFI3:
+ 133              		.cfi_def_cfa_offset 8
+ 134              		.cfi_offset 3, -8
+ 135              		.cfi_offset 14, -4
+  28:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_GPIO_WritePin(NRF24_CE_PORT, NRF24_CE_PIN, GPIO_PIN_RESET);
+ 136              		.loc 1 28 2 view .LVU10
+ 137 0002 0022     		movs	r2, #0
+ 138 0004 4FF40041 		mov	r1, #32768
+ 139 0008 0148     		ldr	r0, .L15
+ 140 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 141              	.LVL3:
+  29:../../../COM_NRF24L01/NRF24L01.c **** }
+ 142              		.loc 1 29 1 is_stmt 0 view .LVU11
+ 143 000e 08BD     		pop	{r3, pc}
+ 144              	.L16:
+ 145              		.align	2
+ 146              	.L15:
+ 147 0010 000C0258 		.word	1476529152
+ 148              		.cfi_endproc
+ 149              	.LFE147:
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 4
+
+
+ 151              		.section	.text.nrf24_WriteReg,"ax",%progbits
+ 152              		.align	1
+ 153              		.global	nrf24_WriteReg
+ 154              		.syntax unified
+ 155              		.thumb
+ 156              		.thumb_func
+ 158              	nrf24_WriteReg:
+ 159              	.LVL4:
+ 160              	.LFB148:
+  30:../../../COM_NRF24L01/NRF24L01.c **** 
+  31:../../../COM_NRF24L01/NRF24L01.c **** 
+  32:../../../COM_NRF24L01/NRF24L01.c **** 
+  33:../../../COM_NRF24L01/NRF24L01.c **** // write a single byte to the particular register
+  34:../../../COM_NRF24L01/NRF24L01.c **** void nrf24_WriteReg (uint8_t Reg, uint8_t Data)
+  35:../../../COM_NRF24L01/NRF24L01.c **** {
+ 161              		.loc 1 35 1 is_stmt 1 view -0
+ 162              		.cfi_startproc
+ 163              		@ args = 0, pretend = 0, frame = 8
+ 164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165              		.loc 1 35 1 is_stmt 0 view .LVU13
+ 166 0000 00B5     		push	{lr}
+ 167              	.LCFI4:
+ 168              		.cfi_def_cfa_offset 4
+ 169              		.cfi_offset 14, -4
+ 170 0002 83B0     		sub	sp, sp, #12
+ 171              	.LCFI5:
+ 172              		.cfi_def_cfa_offset 16
+  36:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t buf[2];
+ 173              		.loc 1 36 2 is_stmt 1 view .LVU14
+  37:../../../COM_NRF24L01/NRF24L01.c **** 	buf[0] = Reg|1<<5;
+ 174              		.loc 1 37 2 view .LVU15
+ 175              		.loc 1 37 9 is_stmt 0 view .LVU16
+ 176 0004 40F02000 		orr	r0, r0, #32
+ 177              	.LVL5:
+ 178              		.loc 1 37 9 view .LVU17
+ 179 0008 8DF80400 		strb	r0, [sp, #4]
+  38:../../../COM_NRF24L01/NRF24L01.c **** 	buf[1] = Data;
+ 180              		.loc 1 38 2 is_stmt 1 view .LVU18
+ 181              		.loc 1 38 9 is_stmt 0 view .LVU19
+ 182 000c 8DF80510 		strb	r1, [sp, #5]
+  39:../../../COM_NRF24L01/NRF24L01.c **** 
+  40:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS Pin LOW to select the device
+  41:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 183              		.loc 1 41 2 is_stmt 1 view .LVU20
+ 184 0010 FFF7FEFF 		bl	CS_Select
+ 185              	.LVL6:
+  42:../../../COM_NRF24L01/NRF24L01.c **** 
+  43:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, buf, 2, 1000);
+ 186              		.loc 1 43 2 view .LVU21
+ 187 0014 4FF47A73 		mov	r3, #1000
+ 188 0018 0222     		movs	r2, #2
+ 189 001a 01A9     		add	r1, sp, #4
+ 190 001c 0348     		ldr	r0, .L19
+ 191 001e FFF7FEFF 		bl	HAL_SPI_Transmit
+ 192              	.LVL7:
+  44:../../../COM_NRF24L01/NRF24L01.c **** 
+  45:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS HIGH to release the device
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 5
+
+
+  46:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 193              		.loc 1 46 2 view .LVU22
+ 194 0022 FFF7FEFF 		bl	CS_UnSelect
+ 195              	.LVL8:
+  47:../../../COM_NRF24L01/NRF24L01.c **** }
+ 196              		.loc 1 47 1 is_stmt 0 view .LVU23
+ 197 0026 03B0     		add	sp, sp, #12
+ 198              	.LCFI6:
+ 199              		.cfi_def_cfa_offset 4
+ 200              		@ sp needed
+ 201 0028 5DF804FB 		ldr	pc, [sp], #4
+ 202              	.L20:
+ 203              		.align	2
+ 204              	.L19:
+ 205 002c 00000000 		.word	hspi1
+ 206              		.cfi_endproc
+ 207              	.LFE148:
+ 209              		.section	.text.nrf24_WriteRegMulti,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	nrf24_WriteRegMulti
+ 212              		.syntax unified
+ 213              		.thumb
+ 214              		.thumb_func
+ 216              	nrf24_WriteRegMulti:
+ 217              	.LVL9:
+ 218              	.LFB149:
+  48:../../../COM_NRF24L01/NRF24L01.c **** 
+  49:../../../COM_NRF24L01/NRF24L01.c **** //write multiple bytes starting from a particular register
+  50:../../../COM_NRF24L01/NRF24L01.c **** void nrf24_WriteRegMulti (uint8_t Reg, uint8_t *data, int size)
+  51:../../../COM_NRF24L01/NRF24L01.c **** {
+ 219              		.loc 1 51 1 is_stmt 1 view -0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 8
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		.loc 1 51 1 is_stmt 0 view .LVU25
+ 224 0000 70B5     		push	{r4, r5, r6, lr}
+ 225              	.LCFI7:
+ 226              		.cfi_def_cfa_offset 16
+ 227              		.cfi_offset 4, -16
+ 228              		.cfi_offset 5, -12
+ 229              		.cfi_offset 6, -8
+ 230              		.cfi_offset 14, -4
+ 231 0002 82B0     		sub	sp, sp, #8
+ 232              	.LCFI8:
+ 233              		.cfi_def_cfa_offset 24
+ 234 0004 0C46     		mov	r4, r1
+ 235 0006 1546     		mov	r5, r2
+  52:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t buf[2];
+ 236              		.loc 1 52 2 is_stmt 1 view .LVU26
+  53:../../../COM_NRF24L01/NRF24L01.c **** 	buf[0] = Reg|1<<5;
+ 237              		.loc 1 53 2 view .LVU27
+ 238              		.loc 1 53 9 is_stmt 0 view .LVU28
+ 239 0008 40F02000 		orr	r0, r0, #32
+ 240              	.LVL10:
+ 241              		.loc 1 53 9 view .LVU29
+ 242 000c 8DF80400 		strb	r0, [sp, #4]
+  54:../../../COM_NRF24L01/NRF24L01.c **** //	buf[1] = Data;
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 6
+
+
+  55:../../../COM_NRF24L01/NRF24L01.c **** 
+  56:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS Pin LOW to select the device
+  57:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 243              		.loc 1 57 2 is_stmt 1 view .LVU30
+ 244 0010 FFF7FEFF 		bl	CS_Select
+ 245              	.LVL11:
+  58:../../../COM_NRF24L01/NRF24L01.c **** 
+  59:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, buf, 1, 100);
+ 246              		.loc 1 59 2 view .LVU31
+ 247 0014 084E     		ldr	r6, .L23
+ 248 0016 6423     		movs	r3, #100
+ 249 0018 0122     		movs	r2, #1
+ 250 001a 01A9     		add	r1, sp, #4
+ 251 001c 3046     		mov	r0, r6
+ 252 001e FFF7FEFF 		bl	HAL_SPI_Transmit
+ 253              	.LVL12:
+  60:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, data, size, 1000);
+ 254              		.loc 1 60 2 view .LVU32
+ 255 0022 4FF47A73 		mov	r3, #1000
+ 256 0026 AAB2     		uxth	r2, r5
+ 257 0028 2146     		mov	r1, r4
+ 258 002a 3046     		mov	r0, r6
+ 259 002c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 260              	.LVL13:
+  61:../../../COM_NRF24L01/NRF24L01.c **** 
+  62:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS HIGH to release the device
+  63:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 261              		.loc 1 63 2 view .LVU33
+ 262 0030 FFF7FEFF 		bl	CS_UnSelect
+ 263              	.LVL14:
+  64:../../../COM_NRF24L01/NRF24L01.c **** }
+ 264              		.loc 1 64 1 is_stmt 0 view .LVU34
+ 265 0034 02B0     		add	sp, sp, #8
+ 266              	.LCFI9:
+ 267              		.cfi_def_cfa_offset 16
+ 268              		@ sp needed
+ 269 0036 70BD     		pop	{r4, r5, r6, pc}
+ 270              	.LVL15:
+ 271              	.L24:
+ 272              		.loc 1 64 1 view .LVU35
+ 273              		.align	2
+ 274              	.L23:
+ 275 0038 00000000 		.word	hspi1
+ 276              		.cfi_endproc
+ 277              	.LFE149:
+ 279              		.section	.text.nrf24_ReadReg,"ax",%progbits
+ 280              		.align	1
+ 281              		.global	nrf24_ReadReg
+ 282              		.syntax unified
+ 283              		.thumb
+ 284              		.thumb_func
+ 286              	nrf24_ReadReg:
+ 287              	.LVL16:
+ 288              	.LFB150:
+  65:../../../COM_NRF24L01/NRF24L01.c **** 
+  66:../../../COM_NRF24L01/NRF24L01.c **** 
+  67:../../../COM_NRF24L01/NRF24L01.c **** uint8_t nrf24_ReadReg (uint8_t Reg)
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 7
+
+
+  68:../../../COM_NRF24L01/NRF24L01.c **** {
+ 289              		.loc 1 68 1 is_stmt 1 view -0
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 16
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 293              		.loc 1 68 1 is_stmt 0 view .LVU37
+ 294 0000 10B5     		push	{r4, lr}
+ 295              	.LCFI10:
+ 296              		.cfi_def_cfa_offset 8
+ 297              		.cfi_offset 4, -8
+ 298              		.cfi_offset 14, -4
+ 299 0002 84B0     		sub	sp, sp, #16
+ 300              	.LCFI11:
+ 301              		.cfi_def_cfa_offset 24
+ 302 0004 8DF80700 		strb	r0, [sp, #7]
+  69:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t data=0;
+ 303              		.loc 1 69 2 is_stmt 1 view .LVU38
+ 304              		.loc 1 69 10 is_stmt 0 view .LVU39
+ 305 0008 0023     		movs	r3, #0
+ 306 000a 8DF80F30 		strb	r3, [sp, #15]
+  70:../../../COM_NRF24L01/NRF24L01.c **** 
+  71:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS Pin LOW to select the device
+  72:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 307              		.loc 1 72 2 is_stmt 1 view .LVU40
+ 308 000e FFF7FEFF 		bl	CS_Select
+ 309              	.LVL17:
+  73:../../../COM_NRF24L01/NRF24L01.c **** 
+  74:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, &Reg, 1, 100);
+ 310              		.loc 1 74 2 view .LVU41
+ 311 0012 0A4C     		ldr	r4, .L27
+ 312 0014 6423     		movs	r3, #100
+ 313 0016 0122     		movs	r2, #1
+ 314 0018 0DF10701 		add	r1, sp, #7
+ 315 001c 2046     		mov	r0, r4
+ 316 001e FFF7FEFF 		bl	HAL_SPI_Transmit
+ 317              	.LVL18:
+  75:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Receive(NRF24_SPI, &data, 1, 100);
+ 318              		.loc 1 75 2 view .LVU42
+ 319 0022 6423     		movs	r3, #100
+ 320 0024 0122     		movs	r2, #1
+ 321 0026 0DF10F01 		add	r1, sp, #15
+ 322 002a 2046     		mov	r0, r4
+ 323 002c FFF7FEFF 		bl	HAL_SPI_Receive
+ 324              	.LVL19:
+  76:../../../COM_NRF24L01/NRF24L01.c **** 
+  77:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS HIGH to release the device
+  78:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 325              		.loc 1 78 2 view .LVU43
+ 326 0030 FFF7FEFF 		bl	CS_UnSelect
+ 327              	.LVL20:
+  79:../../../COM_NRF24L01/NRF24L01.c **** 
+  80:../../../COM_NRF24L01/NRF24L01.c **** 	return data;
+ 328              		.loc 1 80 2 view .LVU44
+  81:../../../COM_NRF24L01/NRF24L01.c **** }
+ 329              		.loc 1 81 1 is_stmt 0 view .LVU45
+ 330 0034 9DF80F00 		ldrb	r0, [sp, #15]	@ zero_extendqisi2
+ 331 0038 04B0     		add	sp, sp, #16
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 8
+
+
+ 332              	.LCFI12:
+ 333              		.cfi_def_cfa_offset 8
+ 334              		@ sp needed
+ 335 003a 10BD     		pop	{r4, pc}
+ 336              	.L28:
+ 337              		.align	2
+ 338              	.L27:
+ 339 003c 00000000 		.word	hspi1
+ 340              		.cfi_endproc
+ 341              	.LFE150:
+ 343              		.section	.text.nrf24_ReadReg_Multi,"ax",%progbits
+ 344              		.align	1
+ 345              		.global	nrf24_ReadReg_Multi
+ 346              		.syntax unified
+ 347              		.thumb
+ 348              		.thumb_func
+ 350              	nrf24_ReadReg_Multi:
+ 351              	.LVL21:
+ 352              	.LFB151:
+  82:../../../COM_NRF24L01/NRF24L01.c **** 
+  83:../../../COM_NRF24L01/NRF24L01.c **** 
+  84:../../../COM_NRF24L01/NRF24L01.c **** /* Read multiple bytes from the register */
+  85:../../../COM_NRF24L01/NRF24L01.c **** void nrf24_ReadReg_Multi (uint8_t Reg, uint8_t *data, int size)
+  86:../../../COM_NRF24L01/NRF24L01.c **** {
+ 353              		.loc 1 86 1 is_stmt 1 view -0
+ 354              		.cfi_startproc
+ 355              		@ args = 0, pretend = 0, frame = 8
+ 356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 357              		.loc 1 86 1 is_stmt 0 view .LVU47
+ 358 0000 70B5     		push	{r4, r5, r6, lr}
+ 359              	.LCFI13:
+ 360              		.cfi_def_cfa_offset 16
+ 361              		.cfi_offset 4, -16
+ 362              		.cfi_offset 5, -12
+ 363              		.cfi_offset 6, -8
+ 364              		.cfi_offset 14, -4
+ 365 0002 82B0     		sub	sp, sp, #8
+ 366              	.LCFI14:
+ 367              		.cfi_def_cfa_offset 24
+ 368 0004 0C46     		mov	r4, r1
+ 369 0006 1546     		mov	r5, r2
+ 370 0008 8DF80700 		strb	r0, [sp, #7]
+  87:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS Pin LOW to select the device
+  88:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 371              		.loc 1 88 2 is_stmt 1 view .LVU48
+ 372 000c FFF7FEFF 		bl	CS_Select
+ 373              	.LVL22:
+  89:../../../COM_NRF24L01/NRF24L01.c **** 
+  90:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, &Reg, 1, 100);
+ 374              		.loc 1 90 2 view .LVU49
+ 375 0010 094E     		ldr	r6, .L31
+ 376 0012 6423     		movs	r3, #100
+ 377 0014 0122     		movs	r2, #1
+ 378 0016 0DF10701 		add	r1, sp, #7
+ 379 001a 3046     		mov	r0, r6
+ 380 001c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 381              	.LVL23:
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 9
+
+
+  91:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Receive(NRF24_SPI, data, size, 1000);
+ 382              		.loc 1 91 2 view .LVU50
+ 383 0020 4FF47A73 		mov	r3, #1000
+ 384 0024 AAB2     		uxth	r2, r5
+ 385 0026 2146     		mov	r1, r4
+ 386 0028 3046     		mov	r0, r6
+ 387 002a FFF7FEFF 		bl	HAL_SPI_Receive
+ 388              	.LVL24:
+  92:../../../COM_NRF24L01/NRF24L01.c **** 
+  93:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS HIGH to release the device
+  94:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 389              		.loc 1 94 2 view .LVU51
+ 390 002e FFF7FEFF 		bl	CS_UnSelect
+ 391              	.LVL25:
+  95:../../../COM_NRF24L01/NRF24L01.c **** }
+ 392              		.loc 1 95 1 is_stmt 0 view .LVU52
+ 393 0032 02B0     		add	sp, sp, #8
+ 394              	.LCFI15:
+ 395              		.cfi_def_cfa_offset 16
+ 396              		@ sp needed
+ 397 0034 70BD     		pop	{r4, r5, r6, pc}
+ 398              	.LVL26:
+ 399              	.L32:
+ 400              		.loc 1 95 1 view .LVU53
+ 401 0036 00BF     		.align	2
+ 402              	.L31:
+ 403 0038 00000000 		.word	hspi1
+ 404              		.cfi_endproc
+ 405              	.LFE151:
+ 407              		.section	.text.nrfsendCmd,"ax",%progbits
+ 408              		.align	1
+ 409              		.global	nrfsendCmd
+ 410              		.syntax unified
+ 411              		.thumb
+ 412              		.thumb_func
+ 414              	nrfsendCmd:
+ 415              	.LVL27:
+ 416              	.LFB152:
+  96:../../../COM_NRF24L01/NRF24L01.c **** 
+  97:../../../COM_NRF24L01/NRF24L01.c **** 
+  98:../../../COM_NRF24L01/NRF24L01.c **** // send the command to the NRF
+  99:../../../COM_NRF24L01/NRF24L01.c **** void nrfsendCmd (uint8_t cmd)
+ 100:../../../COM_NRF24L01/NRF24L01.c **** {
+ 417              		.loc 1 100 1 is_stmt 1 view -0
+ 418              		.cfi_startproc
+ 419              		@ args = 0, pretend = 0, frame = 8
+ 420              		@ frame_needed = 0, uses_anonymous_args = 0
+ 421              		.loc 1 100 1 is_stmt 0 view .LVU55
+ 422 0000 00B5     		push	{lr}
+ 423              	.LCFI16:
+ 424              		.cfi_def_cfa_offset 4
+ 425              		.cfi_offset 14, -4
+ 426 0002 83B0     		sub	sp, sp, #12
+ 427              	.LCFI17:
+ 428              		.cfi_def_cfa_offset 16
+ 429 0004 8DF80700 		strb	r0, [sp, #7]
+ 101:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS Pin LOW to select the device
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 10
+
+
+ 102:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 430              		.loc 1 102 2 is_stmt 1 view .LVU56
+ 431 0008 FFF7FEFF 		bl	CS_Select
+ 432              	.LVL28:
+ 103:../../../COM_NRF24L01/NRF24L01.c **** 
+ 104:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, &cmd, 1, 100);
+ 433              		.loc 1 104 2 view .LVU57
+ 434 000c 6423     		movs	r3, #100
+ 435 000e 0122     		movs	r2, #1
+ 436 0010 0DF10701 		add	r1, sp, #7
+ 437 0014 0348     		ldr	r0, .L35
+ 438 0016 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 439              	.LVL29:
+ 105:../../../COM_NRF24L01/NRF24L01.c **** 
+ 106:../../../COM_NRF24L01/NRF24L01.c **** 	// Pull the CS HIGH to release the device
+ 107:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 440              		.loc 1 107 2 view .LVU58
+ 441 001a FFF7FEFF 		bl	CS_UnSelect
+ 442              	.LVL30:
+ 108:../../../COM_NRF24L01/NRF24L01.c **** }
+ 443              		.loc 1 108 1 is_stmt 0 view .LVU59
+ 444 001e 03B0     		add	sp, sp, #12
+ 445              	.LCFI18:
+ 446              		.cfi_def_cfa_offset 4
+ 447              		@ sp needed
+ 448 0020 5DF804FB 		ldr	pc, [sp], #4
+ 449              	.L36:
+ 450              		.align	2
+ 451              	.L35:
+ 452 0024 00000000 		.word	hspi1
+ 453              		.cfi_endproc
+ 454              	.LFE152:
+ 456              		.section	.rodata.nrf24_reset.str1.4,"aMS",%progbits,1
+ 457              		.align	2
+ 458              	.LC0:
+ 459 0000 E7E7E7E7 		.ascii	"\347\347\347\347\347\000"
+ 459      E700
+ 460 0006 0000     		.align	2
+ 461              	.LC1:
+ 462 0008 C2C2C2C2 		.ascii	"\302\302\302\302\302\000"
+ 462      C200
+ 463              		.section	.text.nrf24_reset,"ax",%progbits
+ 464              		.align	1
+ 465              		.global	nrf24_reset
+ 466              		.syntax unified
+ 467              		.thumb
+ 468              		.thumb_func
+ 470              	nrf24_reset:
+ 471              	.LVL31:
+ 472              	.LFB153:
+ 109:../../../COM_NRF24L01/NRF24L01.c **** 
+ 110:../../../COM_NRF24L01/NRF24L01.c **** void nrf24_reset(uint8_t REG)
+ 111:../../../COM_NRF24L01/NRF24L01.c **** {
+ 473              		.loc 1 111 1 is_stmt 1 view -0
+ 474              		.cfi_startproc
+ 475              		@ args = 0, pretend = 0, frame = 24
+ 476              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 11
+
+
+ 477              		.loc 1 111 1 is_stmt 0 view .LVU61
+ 478 0000 10B5     		push	{r4, lr}
+ 479              	.LCFI19:
+ 480              		.cfi_def_cfa_offset 8
+ 481              		.cfi_offset 4, -8
+ 482              		.cfi_offset 14, -4
+ 483 0002 86B0     		sub	sp, sp, #24
+ 484              	.LCFI20:
+ 485              		.cfi_def_cfa_offset 32
+ 112:../../../COM_NRF24L01/NRF24L01.c **** 	if (REG == STATUS)
+ 486              		.loc 1 112 2 is_stmt 1 view .LVU62
+ 487              		.loc 1 112 5 is_stmt 0 view .LVU63
+ 488 0004 0728     		cmp	r0, #7
+ 489 0006 00F08180 		beq	.L42
+ 113:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 114:../../../COM_NRF24L01/NRF24L01.c **** 		nrf24_WriteReg(STATUS, 0x00);
+ 115:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 116:../../../COM_NRF24L01/NRF24L01.c **** 
+ 117:../../../COM_NRF24L01/NRF24L01.c **** 	else if (REG == FIFO_STATUS)
+ 490              		.loc 1 117 7 is_stmt 1 view .LVU64
+ 491              		.loc 1 117 10 is_stmt 0 view .LVU65
+ 492 000a 1728     		cmp	r0, #23
+ 493 000c 00F08280 		beq	.L43
+ 494              	.LBB2:
+ 118:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 119:../../../COM_NRF24L01/NRF24L01.c **** 		nrf24_WriteReg(FIFO_STATUS, 0x11);
+ 120:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 121:../../../COM_NRF24L01/NRF24L01.c **** 
+ 122:../../../COM_NRF24L01/NRF24L01.c **** 	else {
+ 123:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(CONFIG, 0x08);
+ 495              		.loc 1 123 2 is_stmt 1 view .LVU66
+ 496 0010 0821     		movs	r1, #8
+ 497 0012 0020     		movs	r0, #0
+ 498              	.LVL32:
+ 499              		.loc 1 123 2 is_stmt 0 view .LVU67
+ 500 0014 FFF7FEFF 		bl	nrf24_WriteReg
+ 501              	.LVL33:
+ 124:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(EN_AA, 0x3F);
+ 502              		.loc 1 124 2 is_stmt 1 view .LVU68
+ 503 0018 3F21     		movs	r1, #63
+ 504 001a 0120     		movs	r0, #1
+ 505 001c FFF7FEFF 		bl	nrf24_WriteReg
+ 506              	.LVL34:
+ 125:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(EN_RXADDR, 0x03);
+ 507              		.loc 1 125 2 view .LVU69
+ 508 0020 0321     		movs	r1, #3
+ 509 0022 0220     		movs	r0, #2
+ 510 0024 FFF7FEFF 		bl	nrf24_WriteReg
+ 511              	.LVL35:
+ 126:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(SETUP_AW, 0x03);
+ 512              		.loc 1 126 2 view .LVU70
+ 513 0028 0321     		movs	r1, #3
+ 514 002a 0846     		mov	r0, r1
+ 515 002c FFF7FEFF 		bl	nrf24_WriteReg
+ 516              	.LVL36:
+ 127:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(SETUP_RETR, 0x03);
+ 517              		.loc 1 127 2 view .LVU71
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 12
+
+
+ 518 0030 0321     		movs	r1, #3
+ 519 0032 0420     		movs	r0, #4
+ 520 0034 FFF7FEFF 		bl	nrf24_WriteReg
+ 521              	.LVL37:
+ 128:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RF_CH, 0x02);
+ 522              		.loc 1 128 2 view .LVU72
+ 523 0038 0221     		movs	r1, #2
+ 524 003a 0520     		movs	r0, #5
+ 525 003c FFF7FEFF 		bl	nrf24_WriteReg
+ 526              	.LVL38:
+ 129:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RF_SETUP, 0x0E);
+ 527              		.loc 1 129 2 view .LVU73
+ 528 0040 0E21     		movs	r1, #14
+ 529 0042 0620     		movs	r0, #6
+ 530 0044 FFF7FEFF 		bl	nrf24_WriteReg
+ 531              	.LVL39:
+ 130:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(STATUS, 0x00);
+ 532              		.loc 1 130 2 view .LVU74
+ 533 0048 0021     		movs	r1, #0
+ 534 004a 0720     		movs	r0, #7
+ 535 004c FFF7FEFF 		bl	nrf24_WriteReg
+ 536              	.LVL40:
+ 131:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(OBSERVE_TX, 0x00);
+ 537              		.loc 1 131 2 view .LVU75
+ 538 0050 0021     		movs	r1, #0
+ 539 0052 0820     		movs	r0, #8
+ 540 0054 FFF7FEFF 		bl	nrf24_WriteReg
+ 541              	.LVL41:
+ 132:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(CD, 0x00);
+ 542              		.loc 1 132 2 view .LVU76
+ 543 0058 0021     		movs	r1, #0
+ 544 005a 0920     		movs	r0, #9
+ 545 005c FFF7FEFF 		bl	nrf24_WriteReg
+ 546              	.LVL42:
+ 133:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t rx_addr_p0_def[5] = {0xE7, 0xE7, 0xE7, 0xE7, 0xE7};
+ 547              		.loc 1 133 2 view .LVU77
+ 548              		.loc 1 133 10 is_stmt 0 view .LVU78
+ 549 0060 2E4C     		ldr	r4, .L44
+ 550 0062 94E80300 		ldm	r4, {r0, r1}
+ 551 0066 0090     		str	r0, [sp]
+ 552 0068 8DF80410 		strb	r1, [sp, #4]
+ 134:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteRegMulti(RX_ADDR_P0, rx_addr_p0_def, 5);
+ 553              		.loc 1 134 2 is_stmt 1 view .LVU79
+ 554 006c 0522     		movs	r2, #5
+ 555 006e 6946     		mov	r1, sp
+ 556 0070 0A20     		movs	r0, #10
+ 557 0072 FFF7FEFF 		bl	nrf24_WriteRegMulti
+ 558              	.LVL43:
+ 135:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t rx_addr_p1_def[5] = {0xC2, 0xC2, 0xC2, 0xC2, 0xC2};
+ 559              		.loc 1 135 2 view .LVU80
+ 560              		.loc 1 135 10 is_stmt 0 view .LVU81
+ 561 0076 2A4B     		ldr	r3, .L44+4
+ 562 0078 93E80300 		ldm	r3, {r0, r1}
+ 563 007c 0290     		str	r0, [sp, #8]
+ 564 007e 8DF80C10 		strb	r1, [sp, #12]
+ 136:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteRegMulti(RX_ADDR_P1, rx_addr_p1_def, 5);
+ 565              		.loc 1 136 2 is_stmt 1 view .LVU82
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 13
+
+
+ 566 0082 0522     		movs	r2, #5
+ 567 0084 02A9     		add	r1, sp, #8
+ 568 0086 0B20     		movs	r0, #11
+ 569 0088 FFF7FEFF 		bl	nrf24_WriteRegMulti
+ 570              	.LVL44:
+ 137:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_ADDR_P2, 0xC3);
+ 571              		.loc 1 137 2 view .LVU83
+ 572 008c C321     		movs	r1, #195
+ 573 008e 0C20     		movs	r0, #12
+ 574 0090 FFF7FEFF 		bl	nrf24_WriteReg
+ 575              	.LVL45:
+ 138:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_ADDR_P3, 0xC4);
+ 576              		.loc 1 138 2 view .LVU84
+ 577 0094 C421     		movs	r1, #196
+ 578 0096 0D20     		movs	r0, #13
+ 579 0098 FFF7FEFF 		bl	nrf24_WriteReg
+ 580              	.LVL46:
+ 139:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_ADDR_P4, 0xC5);
+ 581              		.loc 1 139 2 view .LVU85
+ 582 009c C521     		movs	r1, #197
+ 583 009e 0E20     		movs	r0, #14
+ 584 00a0 FFF7FEFF 		bl	nrf24_WriteReg
+ 585              	.LVL47:
+ 140:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_ADDR_P5, 0xC6);
+ 586              		.loc 1 140 2 view .LVU86
+ 587 00a4 C621     		movs	r1, #198
+ 588 00a6 0F20     		movs	r0, #15
+ 589 00a8 FFF7FEFF 		bl	nrf24_WriteReg
+ 590              	.LVL48:
+ 141:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t tx_addr_def[5] = {0xE7, 0xE7, 0xE7, 0xE7, 0xE7};
+ 591              		.loc 1 141 2 view .LVU87
+ 592              		.loc 1 141 10 is_stmt 0 view .LVU88
+ 593 00ac 94E80300 		ldm	r4, {r0, r1}
+ 594 00b0 0490     		str	r0, [sp, #16]
+ 595 00b2 8DF81410 		strb	r1, [sp, #20]
+ 142:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteRegMulti(TX_ADDR, tx_addr_def, 5);
+ 596              		.loc 1 142 2 is_stmt 1 view .LVU89
+ 597 00b6 0522     		movs	r2, #5
+ 598 00b8 04A9     		add	r1, sp, #16
+ 599 00ba 1020     		movs	r0, #16
+ 600 00bc FFF7FEFF 		bl	nrf24_WriteRegMulti
+ 601              	.LVL49:
+ 143:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_PW_P0, 0);
+ 602              		.loc 1 143 2 view .LVU90
+ 603 00c0 0021     		movs	r1, #0
+ 604 00c2 1120     		movs	r0, #17
+ 605 00c4 FFF7FEFF 		bl	nrf24_WriteReg
+ 606              	.LVL50:
+ 144:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_PW_P1, 0);
+ 607              		.loc 1 144 2 view .LVU91
+ 608 00c8 0021     		movs	r1, #0
+ 609 00ca 1220     		movs	r0, #18
+ 610 00cc FFF7FEFF 		bl	nrf24_WriteReg
+ 611              	.LVL51:
+ 145:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_PW_P2, 0);
+ 612              		.loc 1 145 2 view .LVU92
+ 613 00d0 0021     		movs	r1, #0
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 14
+
+
+ 614 00d2 1320     		movs	r0, #19
+ 615 00d4 FFF7FEFF 		bl	nrf24_WriteReg
+ 616              	.LVL52:
+ 146:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_PW_P3, 0);
+ 617              		.loc 1 146 2 view .LVU93
+ 618 00d8 0021     		movs	r1, #0
+ 619 00da 1420     		movs	r0, #20
+ 620 00dc FFF7FEFF 		bl	nrf24_WriteReg
+ 621              	.LVL53:
+ 147:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_PW_P4, 0);
+ 622              		.loc 1 147 2 view .LVU94
+ 623 00e0 0021     		movs	r1, #0
+ 624 00e2 1520     		movs	r0, #21
+ 625 00e4 FFF7FEFF 		bl	nrf24_WriteReg
+ 626              	.LVL54:
+ 148:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_PW_P5, 0);
+ 627              		.loc 1 148 2 view .LVU95
+ 628 00e8 0021     		movs	r1, #0
+ 629 00ea 1620     		movs	r0, #22
+ 630 00ec FFF7FEFF 		bl	nrf24_WriteReg
+ 631              	.LVL55:
+ 149:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(FIFO_STATUS, 0x11);
+ 632              		.loc 1 149 2 view .LVU96
+ 633 00f0 1121     		movs	r1, #17
+ 634 00f2 1720     		movs	r0, #23
+ 635 00f4 FFF7FEFF 		bl	nrf24_WriteReg
+ 636              	.LVL56:
+ 150:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(DYNPD, 0);
+ 637              		.loc 1 150 2 view .LVU97
+ 638 00f8 0021     		movs	r1, #0
+ 639 00fa 1C20     		movs	r0, #28
+ 640 00fc FFF7FEFF 		bl	nrf24_WriteReg
+ 641              	.LVL57:
+ 151:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(FEATURE, 0);
+ 642              		.loc 1 151 2 view .LVU98
+ 643 0100 0021     		movs	r1, #0
+ 644 0102 1D20     		movs	r0, #29
+ 645 0104 FFF7FEFF 		bl	nrf24_WriteReg
+ 646              	.LVL58:
+ 647              	.L37:
+ 648              	.LBE2:
+ 152:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 153:../../../COM_NRF24L01/NRF24L01.c **** }
+ 649              		.loc 1 153 1 is_stmt 0 view .LVU99
+ 650 0108 06B0     		add	sp, sp, #24
+ 651              	.LCFI21:
+ 652              		.cfi_remember_state
+ 653              		.cfi_def_cfa_offset 8
+ 654              		@ sp needed
+ 655 010a 10BD     		pop	{r4, pc}
+ 656              	.LVL59:
+ 657              	.L42:
+ 658              	.LCFI22:
+ 659              		.cfi_restore_state
+ 114:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 660              		.loc 1 114 3 is_stmt 1 view .LVU100
+ 661 010c 0021     		movs	r1, #0
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 15
+
+
+ 662 010e FFF7FEFF 		bl	nrf24_WriteReg
+ 663              	.LVL60:
+ 114:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 664              		.loc 1 114 3 is_stmt 0 view .LVU101
+ 665 0112 F9E7     		b	.L37
+ 666              	.LVL61:
+ 667              	.L43:
+ 119:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 668              		.loc 1 119 3 is_stmt 1 view .LVU102
+ 669 0114 1121     		movs	r1, #17
+ 670 0116 FFF7FEFF 		bl	nrf24_WriteReg
+ 671              	.LVL62:
+ 119:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 672              		.loc 1 119 3 is_stmt 0 view .LVU103
+ 673 011a F5E7     		b	.L37
+ 674              	.L45:
+ 675              		.align	2
+ 676              	.L44:
+ 677 011c 00000000 		.word	.LC0
+ 678 0120 08000000 		.word	.LC1
+ 679              		.cfi_endproc
+ 680              	.LFE153:
+ 682              		.section	.text.NRF24_Init,"ax",%progbits
+ 683              		.align	1
+ 684              		.global	NRF24_Init
+ 685              		.syntax unified
+ 686              		.thumb
+ 687              		.thumb_func
+ 689              	NRF24_Init:
+ 690              	.LFB154:
+ 154:../../../COM_NRF24L01/NRF24L01.c **** 
+ 155:../../../COM_NRF24L01/NRF24L01.c **** 
+ 156:../../../COM_NRF24L01/NRF24L01.c **** 
+ 157:../../../COM_NRF24L01/NRF24L01.c **** 
+ 158:../../../COM_NRF24L01/NRF24L01.c **** void NRF24_Init (void)
+ 159:../../../COM_NRF24L01/NRF24L01.c **** {
+ 691              		.loc 1 159 1 is_stmt 1 view -0
+ 692              		.cfi_startproc
+ 693              		@ args = 0, pretend = 0, frame = 0
+ 694              		@ frame_needed = 0, uses_anonymous_args = 0
+ 695 0000 08B5     		push	{r3, lr}
+ 696              	.LCFI23:
+ 697              		.cfi_def_cfa_offset 8
+ 698              		.cfi_offset 3, -8
+ 699              		.cfi_offset 14, -4
+ 160:../../../COM_NRF24L01/NRF24L01.c **** 	// disable the chip before configuring the device
+ 161:../../../COM_NRF24L01/NRF24L01.c **** 	CE_Disable();
+ 700              		.loc 1 161 2 view .LVU105
+ 701 0002 FFF7FEFF 		bl	CE_Disable
+ 702              	.LVL63:
+ 162:../../../COM_NRF24L01/NRF24L01.c **** 
+ 163:../../../COM_NRF24L01/NRF24L01.c **** 
+ 164:../../../COM_NRF24L01/NRF24L01.c **** 	// reset everything
+ 165:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_reset (0);
+ 703              		.loc 1 165 2 view .LVU106
+ 704 0006 0020     		movs	r0, #0
+ 705 0008 FFF7FEFF 		bl	nrf24_reset
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 16
+
+
+ 706              	.LVL64:
+ 166:../../../COM_NRF24L01/NRF24L01.c **** 
+ 167:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(CONFIG, 0);  // will be configured later
+ 707              		.loc 1 167 2 view .LVU107
+ 708 000c 0021     		movs	r1, #0
+ 709 000e 0846     		mov	r0, r1
+ 710 0010 FFF7FEFF 		bl	nrf24_WriteReg
+ 711              	.LVL65:
+ 168:../../../COM_NRF24L01/NRF24L01.c **** 
+ 169:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(EN_AA, 0);  // No Auto ACK
+ 712              		.loc 1 169 2 view .LVU108
+ 713 0014 0021     		movs	r1, #0
+ 714 0016 0120     		movs	r0, #1
+ 715 0018 FFF7FEFF 		bl	nrf24_WriteReg
+ 716              	.LVL66:
+ 170:../../../COM_NRF24L01/NRF24L01.c **** 
+ 171:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (EN_RXADDR, 0);  // Not Enabling any data pipe right now
+ 717              		.loc 1 171 2 view .LVU109
+ 718 001c 0021     		movs	r1, #0
+ 719 001e 0220     		movs	r0, #2
+ 720 0020 FFF7FEFF 		bl	nrf24_WriteReg
+ 721              	.LVL67:
+ 172:../../../COM_NRF24L01/NRF24L01.c **** 
+ 173:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (SETUP_AW, 0x03);  // 5 Bytes for the TX/RX address
+ 722              		.loc 1 173 2 view .LVU110
+ 723 0024 0321     		movs	r1, #3
+ 724 0026 0846     		mov	r0, r1
+ 725 0028 FFF7FEFF 		bl	nrf24_WriteReg
+ 726              	.LVL68:
+ 174:../../../COM_NRF24L01/NRF24L01.c **** 
+ 175:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (SETUP_RETR, 0);   // No retransmission
+ 727              		.loc 1 175 2 view .LVU111
+ 728 002c 0021     		movs	r1, #0
+ 729 002e 0420     		movs	r0, #4
+ 730 0030 FFF7FEFF 		bl	nrf24_WriteReg
+ 731              	.LVL69:
+ 176:../../../COM_NRF24L01/NRF24L01.c **** 
+ 177:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (RF_CH, 0);  // will be setup during Tx or RX
+ 732              		.loc 1 177 2 view .LVU112
+ 733 0034 0021     		movs	r1, #0
+ 734 0036 0520     		movs	r0, #5
+ 735 0038 FFF7FEFF 		bl	nrf24_WriteReg
+ 736              	.LVL70:
+ 178:../../../COM_NRF24L01/NRF24L01.c **** 
+ 179:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (RF_SETUP, 0x0E);   // Power= 0db, data rate = 2Mbps
+ 737              		.loc 1 179 2 view .LVU113
+ 738 003c 0E21     		movs	r1, #14
+ 739 003e 0620     		movs	r0, #6
+ 740 0040 FFF7FEFF 		bl	nrf24_WriteReg
+ 741              	.LVL71:
+ 180:../../../COM_NRF24L01/NRF24L01.c **** 
+ 181:../../../COM_NRF24L01/NRF24L01.c **** 	// Enable the chip after configuring the device
+ 182:../../../COM_NRF24L01/NRF24L01.c **** 	CE_Enable();
+ 742              		.loc 1 182 2 view .LVU114
+ 743 0044 FFF7FEFF 		bl	CE_Enable
+ 744              	.LVL72:
+ 183:../../../COM_NRF24L01/NRF24L01.c **** 
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 17
+
+
+ 184:../../../COM_NRF24L01/NRF24L01.c **** }
+ 745              		.loc 1 184 1 is_stmt 0 view .LVU115
+ 746 0048 08BD     		pop	{r3, pc}
+ 747              		.cfi_endproc
+ 748              	.LFE154:
+ 750              		.section	.text.NRF24_TxMode,"ax",%progbits
+ 751              		.align	1
+ 752              		.global	NRF24_TxMode
+ 753              		.syntax unified
+ 754              		.thumb
+ 755              		.thumb_func
+ 757              	NRF24_TxMode:
+ 758              	.LVL73:
+ 759              	.LFB155:
+ 185:../../../COM_NRF24L01/NRF24L01.c **** 
+ 186:../../../COM_NRF24L01/NRF24L01.c **** 
+ 187:../../../COM_NRF24L01/NRF24L01.c **** // set up the Tx mode
+ 188:../../../COM_NRF24L01/NRF24L01.c **** 
+ 189:../../../COM_NRF24L01/NRF24L01.c **** void NRF24_TxMode (uint8_t *Address, uint8_t channel)
+ 190:../../../COM_NRF24L01/NRF24L01.c **** {
+ 760              		.loc 1 190 1 is_stmt 1 view -0
+ 761              		.cfi_startproc
+ 762              		@ args = 0, pretend = 0, frame = 0
+ 763              		@ frame_needed = 0, uses_anonymous_args = 0
+ 764              		.loc 1 190 1 is_stmt 0 view .LVU117
+ 765 0000 38B5     		push	{r3, r4, r5, lr}
+ 766              	.LCFI24:
+ 767              		.cfi_def_cfa_offset 16
+ 768              		.cfi_offset 3, -16
+ 769              		.cfi_offset 4, -12
+ 770              		.cfi_offset 5, -8
+ 771              		.cfi_offset 14, -4
+ 772 0002 0446     		mov	r4, r0
+ 773 0004 0D46     		mov	r5, r1
+ 191:../../../COM_NRF24L01/NRF24L01.c **** 	// disable the chip before configuring the device
+ 192:../../../COM_NRF24L01/NRF24L01.c **** 	CE_Disable();
+ 774              		.loc 1 192 2 is_stmt 1 view .LVU118
+ 775 0006 FFF7FEFF 		bl	CE_Disable
+ 776              	.LVL74:
+ 193:../../../COM_NRF24L01/NRF24L01.c **** 
+ 194:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (RF_CH, channel);  // select the channel
+ 777              		.loc 1 194 2 view .LVU119
+ 778 000a 2946     		mov	r1, r5
+ 779 000c 0520     		movs	r0, #5
+ 780 000e FFF7FEFF 		bl	nrf24_WriteReg
+ 781              	.LVL75:
+ 195:../../../COM_NRF24L01/NRF24L01.c **** 
+ 196:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteRegMulti(TX_ADDR, Address, 5);  // Write the TX address
+ 782              		.loc 1 196 2 view .LVU120
+ 783 0012 0522     		movs	r2, #5
+ 784 0014 2146     		mov	r1, r4
+ 785 0016 1020     		movs	r0, #16
+ 786 0018 FFF7FEFF 		bl	nrf24_WriteRegMulti
+ 787              	.LVL76:
+ 197:../../../COM_NRF24L01/NRF24L01.c **** 
+ 198:../../../COM_NRF24L01/NRF24L01.c **** 
+ 199:../../../COM_NRF24L01/NRF24L01.c **** 	// power up the device
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 18
+
+
+ 200:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t config = nrf24_ReadReg(CONFIG);
+ 788              		.loc 1 200 2 view .LVU121
+ 789              		.loc 1 200 19 is_stmt 0 view .LVU122
+ 790 001c 0020     		movs	r0, #0
+ 791 001e FFF7FEFF 		bl	nrf24_ReadReg
+ 792              	.LVL77:
+ 201:../../../COM_NRF24L01/NRF24L01.c **** 	config = config | (1<<1);   // write 1 in the PWR_UP bit
+ 793              		.loc 1 201 2 is_stmt 1 view .LVU123
+ 794              		.loc 1 201 9 is_stmt 0 view .LVU124
+ 795 0022 40F00201 		orr	r1, r0, #2
+ 796              	.LVL78:
+ 202:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (CONFIG, config);
+ 797              		.loc 1 202 2 is_stmt 1 view .LVU125
+ 798 0026 C9B2     		uxtb	r1, r1
+ 799              		.loc 1 202 2 is_stmt 0 view .LVU126
+ 800 0028 0020     		movs	r0, #0
+ 801 002a FFF7FEFF 		bl	nrf24_WriteReg
+ 802              	.LVL79:
+ 203:../../../COM_NRF24L01/NRF24L01.c **** 
+ 204:../../../COM_NRF24L01/NRF24L01.c **** 	// Enable the chip after configuring the device
+ 205:../../../COM_NRF24L01/NRF24L01.c **** 	CE_Enable();
+ 803              		.loc 1 205 2 is_stmt 1 view .LVU127
+ 804 002e FFF7FEFF 		bl	CE_Enable
+ 805              	.LVL80:
+ 206:../../../COM_NRF24L01/NRF24L01.c **** }
+ 806              		.loc 1 206 1 is_stmt 0 view .LVU128
+ 807 0032 38BD     		pop	{r3, r4, r5, pc}
+ 808              		.loc 1 206 1 view .LVU129
+ 809              		.cfi_endproc
+ 810              	.LFE155:
+ 812              		.section	.text.NRF24_Transmit,"ax",%progbits
+ 813              		.align	1
+ 814              		.global	NRF24_Transmit
+ 815              		.syntax unified
+ 816              		.thumb
+ 817              		.thumb_func
+ 819              	NRF24_Transmit:
+ 820              	.LVL81:
+ 821              	.LFB156:
+ 207:../../../COM_NRF24L01/NRF24L01.c **** 
+ 208:../../../COM_NRF24L01/NRF24L01.c **** 
+ 209:../../../COM_NRF24L01/NRF24L01.c **** // transmit the data
+ 210:../../../COM_NRF24L01/NRF24L01.c **** 
+ 211:../../../COM_NRF24L01/NRF24L01.c **** uint8_t NRF24_Transmit (uint8_t *data)
+ 212:../../../COM_NRF24L01/NRF24L01.c **** {
+ 822              		.loc 1 212 1 is_stmt 1 view -0
+ 823              		.cfi_startproc
+ 824              		@ args = 0, pretend = 0, frame = 8
+ 825              		@ frame_needed = 0, uses_anonymous_args = 0
+ 826              		.loc 1 212 1 is_stmt 0 view .LVU131
+ 827 0000 30B5     		push	{r4, r5, lr}
+ 828              	.LCFI25:
+ 829              		.cfi_def_cfa_offset 12
+ 830              		.cfi_offset 4, -12
+ 831              		.cfi_offset 5, -8
+ 832              		.cfi_offset 14, -4
+ 833 0002 83B0     		sub	sp, sp, #12
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 19
+
+
+ 834              	.LCFI26:
+ 835              		.cfi_def_cfa_offset 24
+ 836 0004 0446     		mov	r4, r0
+ 213:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t cmdtosend = 0;
+ 837              		.loc 1 213 2 is_stmt 1 view .LVU132
+ 838              		.loc 1 213 10 is_stmt 0 view .LVU133
+ 839 0006 0023     		movs	r3, #0
+ 840 0008 8DF80730 		strb	r3, [sp, #7]
+ 214:../../../COM_NRF24L01/NRF24L01.c **** 
+ 215:../../../COM_NRF24L01/NRF24L01.c **** 	// select the device
+ 216:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 841              		.loc 1 216 2 is_stmt 1 view .LVU134
+ 842 000c FFF7FEFF 		bl	CS_Select
+ 843              	.LVL82:
+ 217:../../../COM_NRF24L01/NRF24L01.c **** 
+ 218:../../../COM_NRF24L01/NRF24L01.c **** 	// payload command
+ 219:../../../COM_NRF24L01/NRF24L01.c **** 	cmdtosend = W_TX_PAYLOAD;
+ 844              		.loc 1 219 2 view .LVU135
+ 845              		.loc 1 219 12 is_stmt 0 view .LVU136
+ 846 0010 A023     		movs	r3, #160
+ 847 0012 8DF80730 		strb	r3, [sp, #7]
+ 220:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, &cmdtosend, 1, 100);
+ 848              		.loc 1 220 2 is_stmt 1 view .LVU137
+ 849 0016 144D     		ldr	r5, .L55
+ 850 0018 6423     		movs	r3, #100
+ 851 001a 0122     		movs	r2, #1
+ 852 001c 0DF10701 		add	r1, sp, #7
+ 853 0020 2846     		mov	r0, r5
+ 854 0022 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 855              	.LVL83:
+ 221:../../../COM_NRF24L01/NRF24L01.c **** 
+ 222:../../../COM_NRF24L01/NRF24L01.c **** 	// send the payload
+ 223:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, data, 32, 1000);
+ 856              		.loc 1 223 2 view .LVU138
+ 857 0026 4FF47A73 		mov	r3, #1000
+ 858 002a 2022     		movs	r2, #32
+ 859 002c 2146     		mov	r1, r4
+ 860 002e 2846     		mov	r0, r5
+ 861 0030 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 862              	.LVL84:
+ 224:../../../COM_NRF24L01/NRF24L01.c **** 
+ 225:../../../COM_NRF24L01/NRF24L01.c **** 	// Unselect the device
+ 226:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 863              		.loc 1 226 2 view .LVU139
+ 864 0034 FFF7FEFF 		bl	CS_UnSelect
+ 865              	.LVL85:
+ 227:../../../COM_NRF24L01/NRF24L01.c **** 
+ 228:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_Delay(1);
+ 866              		.loc 1 228 2 view .LVU140
+ 867 0038 0120     		movs	r0, #1
+ 868 003a FFF7FEFF 		bl	HAL_Delay
+ 869              	.LVL86:
+ 229:../../../COM_NRF24L01/NRF24L01.c **** 
+ 230:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t fifostatus = nrf24_ReadReg(FIFO_STATUS);
+ 870              		.loc 1 230 2 view .LVU141
+ 871              		.loc 1 230 23 is_stmt 0 view .LVU142
+ 872 003e 1720     		movs	r0, #23
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 20
+
+
+ 873 0040 FFF7FEFF 		bl	nrf24_ReadReg
+ 874              	.LVL87:
+ 231:../../../COM_NRF24L01/NRF24L01.c **** 
+ 232:../../../COM_NRF24L01/NRF24L01.c **** 	// check the fourth bit of FIFO_STATUS to know if the TX fifo is empty
+ 233:../../../COM_NRF24L01/NRF24L01.c **** 	if ((fifostatus&(1<<4)) && (!(fifostatus&(1<<3))))
+ 875              		.loc 1 233 2 is_stmt 1 view .LVU143
+ 876              		.loc 1 233 5 is_stmt 0 view .LVU144
+ 877 0044 00F01800 		and	r0, r0, #24
+ 878              	.LVL88:
+ 879              		.loc 1 233 5 view .LVU145
+ 880 0048 1028     		cmp	r0, #16
+ 881 004a 02D0     		beq	.L54
+ 234:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 235:../../../COM_NRF24L01/NRF24L01.c **** 		cmdtosend = FLUSH_TX;
+ 236:../../../COM_NRF24L01/NRF24L01.c **** 		nrfsendCmd(cmdtosend);
+ 237:../../../COM_NRF24L01/NRF24L01.c **** 
+ 238:../../../COM_NRF24L01/NRF24L01.c **** 		// reset FIFO_STATUS
+ 239:../../../COM_NRF24L01/NRF24L01.c **** 		nrf24_reset (FIFO_STATUS);
+ 240:../../../COM_NRF24L01/NRF24L01.c **** 
+ 241:../../../COM_NRF24L01/NRF24L01.c **** 		return 1;
+ 242:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 243:../../../COM_NRF24L01/NRF24L01.c **** 
+ 244:../../../COM_NRF24L01/NRF24L01.c **** 	return 0;
+ 882              		.loc 1 244 9 view .LVU146
+ 883 004c 0020     		movs	r0, #0
+ 884              	.L51:
+ 245:../../../COM_NRF24L01/NRF24L01.c **** }
+ 885              		.loc 1 245 1 view .LVU147
+ 886 004e 03B0     		add	sp, sp, #12
+ 887              	.LCFI27:
+ 888              		.cfi_remember_state
+ 889              		.cfi_def_cfa_offset 12
+ 890              		@ sp needed
+ 891 0050 30BD     		pop	{r4, r5, pc}
+ 892              	.LVL89:
+ 893              	.L54:
+ 894              	.LCFI28:
+ 895              		.cfi_restore_state
+ 235:../../../COM_NRF24L01/NRF24L01.c **** 		nrfsendCmd(cmdtosend);
+ 896              		.loc 1 235 3 is_stmt 1 view .LVU148
+ 235:../../../COM_NRF24L01/NRF24L01.c **** 		nrfsendCmd(cmdtosend);
+ 897              		.loc 1 235 13 is_stmt 0 view .LVU149
+ 898 0052 E120     		movs	r0, #225
+ 899 0054 8DF80700 		strb	r0, [sp, #7]
+ 236:../../../COM_NRF24L01/NRF24L01.c **** 
+ 900              		.loc 1 236 3 is_stmt 1 view .LVU150
+ 901 0058 FFF7FEFF 		bl	nrfsendCmd
+ 902              	.LVL90:
+ 239:../../../COM_NRF24L01/NRF24L01.c **** 
+ 903              		.loc 1 239 3 view .LVU151
+ 904 005c 1720     		movs	r0, #23
+ 905 005e FFF7FEFF 		bl	nrf24_reset
+ 906              	.LVL91:
+ 241:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 907              		.loc 1 241 3 view .LVU152
+ 241:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 908              		.loc 1 241 10 is_stmt 0 view .LVU153
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 21
+
+
+ 909 0062 0120     		movs	r0, #1
+ 910 0064 F3E7     		b	.L51
+ 911              	.L56:
+ 912 0066 00BF     		.align	2
+ 913              	.L55:
+ 914 0068 00000000 		.word	hspi1
+ 915              		.cfi_endproc
+ 916              	.LFE156:
+ 918              		.section	.text.NRF24_RxMode,"ax",%progbits
+ 919              		.align	1
+ 920              		.global	NRF24_RxMode
+ 921              		.syntax unified
+ 922              		.thumb
+ 923              		.thumb_func
+ 925              	NRF24_RxMode:
+ 926              	.LVL92:
+ 927              	.LFB157:
+ 246:../../../COM_NRF24L01/NRF24L01.c **** 
+ 247:../../../COM_NRF24L01/NRF24L01.c **** 
+ 248:../../../COM_NRF24L01/NRF24L01.c **** void NRF24_RxMode (uint8_t *Address, uint8_t channel)
+ 249:../../../COM_NRF24L01/NRF24L01.c **** {
+ 928              		.loc 1 249 1 is_stmt 1 view -0
+ 929              		.cfi_startproc
+ 930              		@ args = 0, pretend = 0, frame = 0
+ 931              		@ frame_needed = 0, uses_anonymous_args = 0
+ 932              		.loc 1 249 1 is_stmt 0 view .LVU155
+ 933 0000 38B5     		push	{r3, r4, r5, lr}
+ 934              	.LCFI29:
+ 935              		.cfi_def_cfa_offset 16
+ 936              		.cfi_offset 3, -16
+ 937              		.cfi_offset 4, -12
+ 938              		.cfi_offset 5, -8
+ 939              		.cfi_offset 14, -4
+ 940 0002 0446     		mov	r4, r0
+ 941 0004 0D46     		mov	r5, r1
+ 250:../../../COM_NRF24L01/NRF24L01.c **** 	// disable the chip before configuring the device
+ 251:../../../COM_NRF24L01/NRF24L01.c **** 	CE_Disable();
+ 942              		.loc 1 251 2 is_stmt 1 view .LVU156
+ 943 0006 FFF7FEFF 		bl	CE_Disable
+ 944              	.LVL93:
+ 252:../../../COM_NRF24L01/NRF24L01.c **** 
+ 253:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_reset (STATUS);
+ 945              		.loc 1 253 2 view .LVU157
+ 946 000a 0720     		movs	r0, #7
+ 947 000c FFF7FEFF 		bl	nrf24_reset
+ 948              	.LVL94:
+ 254:../../../COM_NRF24L01/NRF24L01.c **** 
+ 255:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (RF_CH, channel);  // select the channel
+ 949              		.loc 1 255 2 view .LVU158
+ 950 0010 2946     		mov	r1, r5
+ 951 0012 0520     		movs	r0, #5
+ 952 0014 FFF7FEFF 		bl	nrf24_WriteReg
+ 953              	.LVL95:
+ 256:../../../COM_NRF24L01/NRF24L01.c **** 
+ 257:../../../COM_NRF24L01/NRF24L01.c **** 	// select data pipe 2
+ 258:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t en_rxaddr = nrf24_ReadReg(EN_RXADDR);
+ 954              		.loc 1 258 2 view .LVU159
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 22
+
+
+ 955              		.loc 1 258 22 is_stmt 0 view .LVU160
+ 956 0018 0220     		movs	r0, #2
+ 957 001a FFF7FEFF 		bl	nrf24_ReadReg
+ 958              	.LVL96:
+ 259:../../../COM_NRF24L01/NRF24L01.c **** 	en_rxaddr = en_rxaddr | (1<<2);
+ 959              		.loc 1 259 2 is_stmt 1 view .LVU161
+ 960              		.loc 1 259 12 is_stmt 0 view .LVU162
+ 961 001e 40F00401 		orr	r1, r0, #4
+ 962              	.LVL97:
+ 260:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (EN_RXADDR, en_rxaddr);
+ 963              		.loc 1 260 2 is_stmt 1 view .LVU163
+ 964 0022 C9B2     		uxtb	r1, r1
+ 965              		.loc 1 260 2 is_stmt 0 view .LVU164
+ 966 0024 0220     		movs	r0, #2
+ 967 0026 FFF7FEFF 		bl	nrf24_WriteReg
+ 968              	.LVL98:
+ 261:../../../COM_NRF24L01/NRF24L01.c **** 
+ 262:../../../COM_NRF24L01/NRF24L01.c **** 	/* We must write the address for Data Pipe 1, if we want to use any pipe from 2 to 5
+ 263:../../../COM_NRF24L01/NRF24L01.c **** 	 * The Address from DATA Pipe 2 to Data Pipe 5 differs only in the LSB
+ 264:../../../COM_NRF24L01/NRF24L01.c **** 	 * Their 4 MSB Bytes will still be same as Data Pipe 1
+ 265:../../../COM_NRF24L01/NRF24L01.c **** 	 *
+ 266:../../../COM_NRF24L01/NRF24L01.c **** 	 * For Eg->
+ 267:../../../COM_NRF24L01/NRF24L01.c **** 	 * Pipe 1 ADDR = 0xAABBCCDD11
+ 268:../../../COM_NRF24L01/NRF24L01.c **** 	 * Pipe 2 ADDR = 0xAABBCCDD22
+ 269:../../../COM_NRF24L01/NRF24L01.c **** 	 * Pipe 3 ADDR = 0xAABBCCDD33
+ 270:../../../COM_NRF24L01/NRF24L01.c **** 	 *
+ 271:../../../COM_NRF24L01/NRF24L01.c **** 	 */
+ 272:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteRegMulti(RX_ADDR_P1, Address, 5);  // Write the Pipe1 address
+ 969              		.loc 1 272 2 is_stmt 1 view .LVU165
+ 970 002a 0522     		movs	r2, #5
+ 971 002c 2146     		mov	r1, r4
+ 972 002e 0B20     		movs	r0, #11
+ 973 0030 FFF7FEFF 		bl	nrf24_WriteRegMulti
+ 974              	.LVL99:
+ 273:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg(RX_ADDR_P2, 0xEE);  // Write the Pipe2 LSB address
+ 975              		.loc 1 273 2 view .LVU166
+ 976 0034 EE21     		movs	r1, #238
+ 977 0036 0C20     		movs	r0, #12
+ 978 0038 FFF7FEFF 		bl	nrf24_WriteReg
+ 979              	.LVL100:
+ 274:../../../COM_NRF24L01/NRF24L01.c **** 
+ 275:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (RX_PW_P2, 32);   // 32 bit payload size for pipe 2
+ 980              		.loc 1 275 2 view .LVU167
+ 981 003c 2021     		movs	r1, #32
+ 982 003e 1320     		movs	r0, #19
+ 983 0040 FFF7FEFF 		bl	nrf24_WriteReg
+ 984              	.LVL101:
+ 276:../../../COM_NRF24L01/NRF24L01.c **** 
+ 277:../../../COM_NRF24L01/NRF24L01.c **** 
+ 278:../../../COM_NRF24L01/NRF24L01.c **** 	// power up the device in Rx mode
+ 279:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t config = nrf24_ReadReg(CONFIG);
+ 985              		.loc 1 279 2 view .LVU168
+ 986              		.loc 1 279 19 is_stmt 0 view .LVU169
+ 987 0044 0020     		movs	r0, #0
+ 988 0046 FFF7FEFF 		bl	nrf24_ReadReg
+ 989              	.LVL102:
+ 280:../../../COM_NRF24L01/NRF24L01.c **** 	config = config | (1<<1) | (1<<0);
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 23
+
+
+ 990              		.loc 1 280 2 is_stmt 1 view .LVU170
+ 991              		.loc 1 280 9 is_stmt 0 view .LVU171
+ 992 004a 40F00301 		orr	r1, r0, #3
+ 993              	.LVL103:
+ 281:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_WriteReg (CONFIG, config);
+ 994              		.loc 1 281 2 is_stmt 1 view .LVU172
+ 995 004e C9B2     		uxtb	r1, r1
+ 996              		.loc 1 281 2 is_stmt 0 view .LVU173
+ 997 0050 0020     		movs	r0, #0
+ 998 0052 FFF7FEFF 		bl	nrf24_WriteReg
+ 999              	.LVL104:
+ 282:../../../COM_NRF24L01/NRF24L01.c **** 
+ 283:../../../COM_NRF24L01/NRF24L01.c **** 	// Enable the chip after configuring the device
+ 284:../../../COM_NRF24L01/NRF24L01.c **** 	CE_Enable();
+ 1000              		.loc 1 284 2 is_stmt 1 view .LVU174
+ 1001 0056 FFF7FEFF 		bl	CE_Enable
+ 1002              	.LVL105:
+ 285:../../../COM_NRF24L01/NRF24L01.c **** }
+ 1003              		.loc 1 285 1 is_stmt 0 view .LVU175
+ 1004 005a 38BD     		pop	{r3, r4, r5, pc}
+ 1005              		.loc 1 285 1 view .LVU176
+ 1006              		.cfi_endproc
+ 1007              	.LFE157:
+ 1009              		.section	.text.isDataAvailable,"ax",%progbits
+ 1010              		.align	1
+ 1011              		.global	isDataAvailable
+ 1012              		.syntax unified
+ 1013              		.thumb
+ 1014              		.thumb_func
+ 1016              	isDataAvailable:
+ 1017              	.LVL106:
+ 1018              	.LFB158:
+ 286:../../../COM_NRF24L01/NRF24L01.c **** 
+ 287:../../../COM_NRF24L01/NRF24L01.c **** 
+ 288:../../../COM_NRF24L01/NRF24L01.c **** uint8_t isDataAvailable (int pipenum)
+ 289:../../../COM_NRF24L01/NRF24L01.c **** {
+ 1019              		.loc 1 289 1 is_stmt 1 view -0
+ 1020              		.cfi_startproc
+ 1021              		@ args = 0, pretend = 0, frame = 0
+ 1022              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1023              		.loc 1 289 1 is_stmt 0 view .LVU178
+ 1024 0000 10B5     		push	{r4, lr}
+ 1025              	.LCFI30:
+ 1026              		.cfi_def_cfa_offset 8
+ 1027              		.cfi_offset 4, -8
+ 1028              		.cfi_offset 14, -4
+ 1029 0002 0446     		mov	r4, r0
+ 290:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t status = nrf24_ReadReg(STATUS);
+ 1030              		.loc 1 290 2 is_stmt 1 view .LVU179
+ 1031              		.loc 1 290 19 is_stmt 0 view .LVU180
+ 1032 0004 0720     		movs	r0, #7
+ 1033              	.LVL107:
+ 1034              		.loc 1 290 19 view .LVU181
+ 1035 0006 FFF7FEFF 		bl	nrf24_ReadReg
+ 1036              	.LVL108:
+ 1037 000a 0346     		mov	r3, r0
+ 1038              	.LVL109:
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 24
+
+
+ 291:../../../COM_NRF24L01/NRF24L01.c **** 
+ 292:../../../COM_NRF24L01/NRF24L01.c **** 	if ((status&(1<<6))&&(status&(pipenum<<1)))
+ 1039              		.loc 1 292 2 is_stmt 1 view .LVU182
+ 1040              		.loc 1 292 5 is_stmt 0 view .LVU183
+ 1041 000c 10F04000 		ands	r0, r0, #64
+ 1042              	.LVL110:
+ 1043              		.loc 1 292 5 view .LVU184
+ 1044 0010 03D0     		beq	.L60
+ 1045              		.loc 1 292 21 discriminator 1 view .LVU185
+ 1046 0012 13EA4400 		ands	r0, r3, r4, lsl #1
+ 1047 0016 01D1     		bne	.L63
+ 293:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 294:../../../COM_NRF24L01/NRF24L01.c **** 
+ 295:../../../COM_NRF24L01/NRF24L01.c **** 		nrf24_WriteReg(STATUS, (1<<6));
+ 296:../../../COM_NRF24L01/NRF24L01.c **** 
+ 297:../../../COM_NRF24L01/NRF24L01.c **** 		return 1;
+ 298:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 299:../../../COM_NRF24L01/NRF24L01.c **** 
+ 300:../../../COM_NRF24L01/NRF24L01.c **** 	return 0;
+ 1048              		.loc 1 300 9 view .LVU186
+ 1049 0018 0020     		movs	r0, #0
+ 1050              	.L60:
+ 301:../../../COM_NRF24L01/NRF24L01.c **** }
+ 1051              		.loc 1 301 1 view .LVU187
+ 1052 001a 10BD     		pop	{r4, pc}
+ 1053              	.LVL111:
+ 1054              	.L63:
+ 295:../../../COM_NRF24L01/NRF24L01.c **** 
+ 1055              		.loc 1 295 3 is_stmt 1 view .LVU188
+ 1056 001c 4021     		movs	r1, #64
+ 1057 001e 0720     		movs	r0, #7
+ 1058 0020 FFF7FEFF 		bl	nrf24_WriteReg
+ 1059              	.LVL112:
+ 297:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 1060              		.loc 1 297 3 view .LVU189
+ 297:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 1061              		.loc 1 297 10 is_stmt 0 view .LVU190
+ 1062 0024 0120     		movs	r0, #1
+ 1063 0026 F8E7     		b	.L60
+ 1064              		.cfi_endproc
+ 1065              	.LFE158:
+ 1067              		.section	.text.NRF24_Receive,"ax",%progbits
+ 1068              		.align	1
+ 1069              		.global	NRF24_Receive
+ 1070              		.syntax unified
+ 1071              		.thumb
+ 1072              		.thumb_func
+ 1074              	NRF24_Receive:
+ 1075              	.LVL113:
+ 1076              	.LFB159:
+ 302:../../../COM_NRF24L01/NRF24L01.c **** 
+ 303:../../../COM_NRF24L01/NRF24L01.c **** 
+ 304:../../../COM_NRF24L01/NRF24L01.c **** void NRF24_Receive (uint8_t *data)
+ 305:../../../COM_NRF24L01/NRF24L01.c **** {
+ 1077              		.loc 1 305 1 is_stmt 1 view -0
+ 1078              		.cfi_startproc
+ 1079              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 25
+
+
+ 1080              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1081              		.loc 1 305 1 is_stmt 0 view .LVU192
+ 1082 0000 30B5     		push	{r4, r5, lr}
+ 1083              	.LCFI31:
+ 1084              		.cfi_def_cfa_offset 12
+ 1085              		.cfi_offset 4, -12
+ 1086              		.cfi_offset 5, -8
+ 1087              		.cfi_offset 14, -4
+ 1088 0002 83B0     		sub	sp, sp, #12
+ 1089              	.LCFI32:
+ 1090              		.cfi_def_cfa_offset 24
+ 1091 0004 0446     		mov	r4, r0
+ 306:../../../COM_NRF24L01/NRF24L01.c **** 	uint8_t cmdtosend = 0;
+ 1092              		.loc 1 306 2 is_stmt 1 view .LVU193
+ 1093              		.loc 1 306 10 is_stmt 0 view .LVU194
+ 1094 0006 0023     		movs	r3, #0
+ 1095 0008 8DF80730 		strb	r3, [sp, #7]
+ 307:../../../COM_NRF24L01/NRF24L01.c **** 
+ 308:../../../COM_NRF24L01/NRF24L01.c **** 	// select the device
+ 309:../../../COM_NRF24L01/NRF24L01.c **** 	CS_Select();
+ 1096              		.loc 1 309 2 is_stmt 1 view .LVU195
+ 1097 000c FFF7FEFF 		bl	CS_Select
+ 1098              	.LVL114:
+ 310:../../../COM_NRF24L01/NRF24L01.c **** 
+ 311:../../../COM_NRF24L01/NRF24L01.c **** 	// payload command
+ 312:../../../COM_NRF24L01/NRF24L01.c **** 	cmdtosend = R_RX_PAYLOAD;
+ 1099              		.loc 1 312 2 view .LVU196
+ 1100              		.loc 1 312 12 is_stmt 0 view .LVU197
+ 1101 0010 6123     		movs	r3, #97
+ 1102 0012 8DF80730 		strb	r3, [sp, #7]
+ 313:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Transmit(NRF24_SPI, &cmdtosend, 1, 100);
+ 1103              		.loc 1 313 2 is_stmt 1 view .LVU198
+ 1104 0016 0D4D     		ldr	r5, .L66
+ 1105 0018 6423     		movs	r3, #100
+ 1106 001a 0122     		movs	r2, #1
+ 1107 001c 0DF10701 		add	r1, sp, #7
+ 1108 0020 2846     		mov	r0, r5
+ 1109 0022 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 1110              	.LVL115:
+ 314:../../../COM_NRF24L01/NRF24L01.c **** 
+ 315:../../../COM_NRF24L01/NRF24L01.c **** 	// Receive the payload
+ 316:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_SPI_Receive(NRF24_SPI, data, 32, 1000);
+ 1111              		.loc 1 316 2 view .LVU199
+ 1112 0026 4FF47A73 		mov	r3, #1000
+ 1113 002a 2022     		movs	r2, #32
+ 1114 002c 2146     		mov	r1, r4
+ 1115 002e 2846     		mov	r0, r5
+ 1116 0030 FFF7FEFF 		bl	HAL_SPI_Receive
+ 1117              	.LVL116:
+ 317:../../../COM_NRF24L01/NRF24L01.c **** 
+ 318:../../../COM_NRF24L01/NRF24L01.c **** 	// Unselect the device
+ 319:../../../COM_NRF24L01/NRF24L01.c **** 	CS_UnSelect();
+ 1118              		.loc 1 319 2 view .LVU200
+ 1119 0034 FFF7FEFF 		bl	CS_UnSelect
+ 1120              	.LVL117:
+ 320:../../../COM_NRF24L01/NRF24L01.c **** 
+ 321:../../../COM_NRF24L01/NRF24L01.c **** 	HAL_Delay(1);
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 26
+
+
+ 1121              		.loc 1 321 2 view .LVU201
+ 1122 0038 0120     		movs	r0, #1
+ 1123 003a FFF7FEFF 		bl	HAL_Delay
+ 1124              	.LVL118:
+ 322:../../../COM_NRF24L01/NRF24L01.c **** 
+ 323:../../../COM_NRF24L01/NRF24L01.c **** 	cmdtosend = FLUSH_RX;
+ 1125              		.loc 1 323 2 view .LVU202
+ 1126              		.loc 1 323 12 is_stmt 0 view .LVU203
+ 1127 003e E220     		movs	r0, #226
+ 1128 0040 8DF80700 		strb	r0, [sp, #7]
+ 324:../../../COM_NRF24L01/NRF24L01.c **** 	nrfsendCmd(cmdtosend);
+ 1129              		.loc 1 324 2 is_stmt 1 view .LVU204
+ 1130 0044 FFF7FEFF 		bl	nrfsendCmd
+ 1131              	.LVL119:
+ 325:../../../COM_NRF24L01/NRF24L01.c **** }
+ 1132              		.loc 1 325 1 is_stmt 0 view .LVU205
+ 1133 0048 03B0     		add	sp, sp, #12
+ 1134              	.LCFI33:
+ 1135              		.cfi_def_cfa_offset 12
+ 1136              		@ sp needed
+ 1137 004a 30BD     		pop	{r4, r5, pc}
+ 1138              	.LVL120:
+ 1139              	.L67:
+ 1140              		.loc 1 325 1 view .LVU206
+ 1141              		.align	2
+ 1142              	.L66:
+ 1143 004c 00000000 		.word	hspi1
+ 1144              		.cfi_endproc
+ 1145              	.LFE159:
+ 1147              		.section	.text.NRF24_ReadAll,"ax",%progbits
+ 1148              		.align	1
+ 1149              		.global	NRF24_ReadAll
+ 1150              		.syntax unified
+ 1151              		.thumb
+ 1152              		.thumb_func
+ 1154              	NRF24_ReadAll:
+ 1155              	.LVL121:
+ 1156              	.LFB160:
+ 326:../../../COM_NRF24L01/NRF24L01.c **** 
+ 327:../../../COM_NRF24L01/NRF24L01.c **** 
+ 328:../../../COM_NRF24L01/NRF24L01.c **** 
+ 329:../../../COM_NRF24L01/NRF24L01.c **** // Read all the Register data
+ 330:../../../COM_NRF24L01/NRF24L01.c **** void NRF24_ReadAll (uint8_t *data)
+ 331:../../../COM_NRF24L01/NRF24L01.c **** {
+ 1157              		.loc 1 331 1 is_stmt 1 view -0
+ 1158              		.cfi_startproc
+ 1159              		@ args = 0, pretend = 0, frame = 0
+ 1160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1161              		.loc 1 331 1 is_stmt 0 view .LVU208
+ 1162 0000 38B5     		push	{r3, r4, r5, lr}
+ 1163              	.LCFI34:
+ 1164              		.cfi_def_cfa_offset 16
+ 1165              		.cfi_offset 3, -16
+ 1166              		.cfi_offset 4, -12
+ 1167              		.cfi_offset 5, -8
+ 1168              		.cfi_offset 14, -4
+ 1169 0002 0546     		mov	r5, r0
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 27
+
+
+ 332:../../../COM_NRF24L01/NRF24L01.c **** 	for (int i=0; i<10; i++)
+ 1170              		.loc 1 332 2 is_stmt 1 view .LVU209
+ 1171              	.LBB3:
+ 1172              		.loc 1 332 7 view .LVU210
+ 1173              	.LVL122:
+ 1174              		.loc 1 332 11 is_stmt 0 view .LVU211
+ 1175 0004 0024     		movs	r4, #0
+ 1176              		.loc 1 332 2 view .LVU212
+ 1177 0006 04E0     		b	.L69
+ 1178              	.LVL123:
+ 1179              	.L70:
+ 333:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 334:../../../COM_NRF24L01/NRF24L01.c **** 		*(data+i) = nrf24_ReadReg(i);
+ 1180              		.loc 1 334 3 is_stmt 1 discriminator 3 view .LVU213
+ 1181              		.loc 1 334 15 is_stmt 0 discriminator 3 view .LVU214
+ 1182 0008 E0B2     		uxtb	r0, r4
+ 1183 000a FFF7FEFF 		bl	nrf24_ReadReg
+ 1184              	.LVL124:
+ 1185              		.loc 1 334 13 discriminator 3 view .LVU215
+ 1186 000e 2855     		strb	r0, [r5, r4]
+ 332:../../../COM_NRF24L01/NRF24L01.c **** 	for (int i=0; i<10; i++)
+ 1187              		.loc 1 332 23 is_stmt 1 discriminator 3 view .LVU216
+ 1188 0010 0134     		adds	r4, r4, #1
+ 1189              	.LVL125:
+ 1190              	.L69:
+ 332:../../../COM_NRF24L01/NRF24L01.c **** 	for (int i=0; i<10; i++)
+ 1191              		.loc 1 332 17 discriminator 1 view .LVU217
+ 1192 0012 092C     		cmp	r4, #9
+ 1193 0014 F8DD     		ble	.L70
+ 1194              	.LBE3:
+ 335:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 336:../../../COM_NRF24L01/NRF24L01.c **** 
+ 337:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_ReadReg_Multi(RX_ADDR_P0, (data+10), 5);
+ 1195              		.loc 1 337 2 view .LVU218
+ 1196 0016 0522     		movs	r2, #5
+ 1197 0018 05F10A01 		add	r1, r5, #10
+ 1198 001c 0A20     		movs	r0, #10
+ 1199 001e FFF7FEFF 		bl	nrf24_ReadReg_Multi
+ 1200              	.LVL126:
+ 338:../../../COM_NRF24L01/NRF24L01.c **** 
+ 339:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_ReadReg_Multi(RX_ADDR_P1, (data+15), 5);
+ 1201              		.loc 1 339 2 view .LVU219
+ 1202 0022 0522     		movs	r2, #5
+ 1203 0024 05F10F01 		add	r1, r5, #15
+ 1204 0028 0B20     		movs	r0, #11
+ 1205 002a FFF7FEFF 		bl	nrf24_ReadReg_Multi
+ 1206              	.LVL127:
+ 340:../../../COM_NRF24L01/NRF24L01.c **** 
+ 341:../../../COM_NRF24L01/NRF24L01.c **** 	*(data+20) = nrf24_ReadReg(RX_ADDR_P2);
+ 1207              		.loc 1 341 2 view .LVU220
+ 1208              		.loc 1 341 15 is_stmt 0 view .LVU221
+ 1209 002e 0C20     		movs	r0, #12
+ 1210 0030 FFF7FEFF 		bl	nrf24_ReadReg
+ 1211              	.LVL128:
+ 1212              		.loc 1 341 13 view .LVU222
+ 1213 0034 2875     		strb	r0, [r5, #20]
+ 342:../../../COM_NRF24L01/NRF24L01.c **** 	*(data+21) = nrf24_ReadReg(RX_ADDR_P3);
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 28
+
+
+ 1214              		.loc 1 342 2 is_stmt 1 view .LVU223
+ 1215              		.loc 1 342 15 is_stmt 0 view .LVU224
+ 1216 0036 0D20     		movs	r0, #13
+ 1217 0038 FFF7FEFF 		bl	nrf24_ReadReg
+ 1218              	.LVL129:
+ 1219              		.loc 1 342 13 view .LVU225
+ 1220 003c 6875     		strb	r0, [r5, #21]
+ 343:../../../COM_NRF24L01/NRF24L01.c **** 	*(data+22) = nrf24_ReadReg(RX_ADDR_P4);
+ 1221              		.loc 1 343 2 is_stmt 1 view .LVU226
+ 1222              		.loc 1 343 15 is_stmt 0 view .LVU227
+ 1223 003e 0E20     		movs	r0, #14
+ 1224 0040 FFF7FEFF 		bl	nrf24_ReadReg
+ 1225              	.LVL130:
+ 1226              		.loc 1 343 13 view .LVU228
+ 1227 0044 A875     		strb	r0, [r5, #22]
+ 344:../../../COM_NRF24L01/NRF24L01.c **** 	*(data+23) = nrf24_ReadReg(RX_ADDR_P5);
+ 1228              		.loc 1 344 2 is_stmt 1 view .LVU229
+ 1229              		.loc 1 344 15 is_stmt 0 view .LVU230
+ 1230 0046 0F20     		movs	r0, #15
+ 1231 0048 FFF7FEFF 		bl	nrf24_ReadReg
+ 1232              	.LVL131:
+ 1233              		.loc 1 344 13 view .LVU231
+ 1234 004c E875     		strb	r0, [r5, #23]
+ 345:../../../COM_NRF24L01/NRF24L01.c **** 
+ 346:../../../COM_NRF24L01/NRF24L01.c **** 	nrf24_ReadReg_Multi(RX_ADDR_P0, (data+24), 5);
+ 1235              		.loc 1 346 2 is_stmt 1 view .LVU232
+ 1236 004e 0522     		movs	r2, #5
+ 1237 0050 05F11801 		add	r1, r5, #24
+ 1238 0054 0A20     		movs	r0, #10
+ 1239 0056 FFF7FEFF 		bl	nrf24_ReadReg_Multi
+ 1240              	.LVL132:
+ 347:../../../COM_NRF24L01/NRF24L01.c **** 
+ 348:../../../COM_NRF24L01/NRF24L01.c **** 	for (int i=29; i<38; i++)
+ 1241              		.loc 1 348 2 view .LVU233
+ 1242              	.LBB4:
+ 1243              		.loc 1 348 7 view .LVU234
+ 1244              		.loc 1 348 11 is_stmt 0 view .LVU235
+ 1245 005a 1D24     		movs	r4, #29
+ 1246              	.LVL133:
+ 1247              		.loc 1 348 2 view .LVU236
+ 1248 005c 06E0     		b	.L71
+ 1249              	.LVL134:
+ 1250              	.L72:
+ 349:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 350:../../../COM_NRF24L01/NRF24L01.c **** 		*(data+i) = nrf24_ReadReg(i-12);
+ 1251              		.loc 1 350 3 is_stmt 1 discriminator 3 view .LVU237
+ 1252              		.loc 1 350 15 is_stmt 0 discriminator 3 view .LVU238
+ 1253 005e A4F10C00 		sub	r0, r4, #12
+ 1254 0062 C0B2     		uxtb	r0, r0
+ 1255 0064 FFF7FEFF 		bl	nrf24_ReadReg
+ 1256              	.LVL135:
+ 1257              		.loc 1 350 13 discriminator 3 view .LVU239
+ 1258 0068 2855     		strb	r0, [r5, r4]
+ 348:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 1259              		.loc 1 348 24 is_stmt 1 discriminator 3 view .LVU240
+ 1260 006a 0134     		adds	r4, r4, #1
+ 1261              	.LVL136:
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 29
+
+
+ 1262              	.L71:
+ 348:../../../COM_NRF24L01/NRF24L01.c **** 	{
+ 1263              		.loc 1 348 18 discriminator 1 view .LVU241
+ 1264 006c 252C     		cmp	r4, #37
+ 1265 006e F6DD     		ble	.L72
+ 1266              	.LBE4:
+ 351:../../../COM_NRF24L01/NRF24L01.c **** 	}
+ 352:../../../COM_NRF24L01/NRF24L01.c **** 
+ 353:../../../COM_NRF24L01/NRF24L01.c **** }
+ 1267              		.loc 1 353 1 is_stmt 0 view .LVU242
+ 1268 0070 38BD     		pop	{r3, r4, r5, pc}
+ 1269              		.loc 1 353 1 view .LVU243
+ 1270              		.cfi_endproc
+ 1271              	.LFE160:
+ 1273              		.text
+ 1274              	.Letext0:
+ 1275              		.file 2 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 1276              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 1277              		.file 4 "../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h755xx.h"
+ 1278              		.file 5 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h"
+ 1279              		.file 6 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h"
+ 1280              		.file 7 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h"
+ 1281              		.file 8 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h"
+ 1282              		.file 9 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h"
+ARM GAS  /var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s 			page 30
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 NRF24L01.c
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:20     .text.CS_Select:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:26     .text.CS_Select:00000000 CS_Select
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:48     .text.CS_Select:00000010 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:53     .text.CS_UnSelect:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:59     .text.CS_UnSelect:00000000 CS_UnSelect
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:81     .text.CS_UnSelect:00000010 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:86     .text.CE_Enable:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:92     .text.CE_Enable:00000000 CE_Enable
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:114    .text.CE_Enable:00000010 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:119    .text.CE_Disable:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:125    .text.CE_Disable:00000000 CE_Disable
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:147    .text.CE_Disable:00000010 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:152    .text.nrf24_WriteReg:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:158    .text.nrf24_WriteReg:00000000 nrf24_WriteReg
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:205    .text.nrf24_WriteReg:0000002c $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:210    .text.nrf24_WriteRegMulti:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:216    .text.nrf24_WriteRegMulti:00000000 nrf24_WriteRegMulti
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:275    .text.nrf24_WriteRegMulti:00000038 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:280    .text.nrf24_ReadReg:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:286    .text.nrf24_ReadReg:00000000 nrf24_ReadReg
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:339    .text.nrf24_ReadReg:0000003c $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:344    .text.nrf24_ReadReg_Multi:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:350    .text.nrf24_ReadReg_Multi:00000000 nrf24_ReadReg_Multi
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:403    .text.nrf24_ReadReg_Multi:00000038 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:408    .text.nrfsendCmd:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:414    .text.nrfsendCmd:00000000 nrfsendCmd
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:452    .text.nrfsendCmd:00000024 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:457    .rodata.nrf24_reset.str1.4:00000000 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:464    .text.nrf24_reset:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:470    .text.nrf24_reset:00000000 nrf24_reset
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:677    .text.nrf24_reset:0000011c $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:683    .text.NRF24_Init:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:689    .text.NRF24_Init:00000000 NRF24_Init
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:751    .text.NRF24_TxMode:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:757    .text.NRF24_TxMode:00000000 NRF24_TxMode
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:813    .text.NRF24_Transmit:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:819    .text.NRF24_Transmit:00000000 NRF24_Transmit
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:914    .text.NRF24_Transmit:00000068 $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:919    .text.NRF24_RxMode:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:925    .text.NRF24_RxMode:00000000 NRF24_RxMode
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1010   .text.isDataAvailable:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1016   .text.isDataAvailable:00000000 isDataAvailable
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1068   .text.NRF24_Receive:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1074   .text.NRF24_Receive:00000000 NRF24_Receive
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1143   .text.NRF24_Receive:0000004c $d
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1148   .text.NRF24_ReadAll:00000000 $t
+/var/folders/x4/_dxb6x6j5tj5dxk7q51dgwn40000gn/T//cczbUKQH.s:1154   .text.NRF24_ReadAll:00000000 NRF24_ReadAll
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_SPI_Transmit
+hspi1
+HAL_SPI_Receive
+HAL_Delay
