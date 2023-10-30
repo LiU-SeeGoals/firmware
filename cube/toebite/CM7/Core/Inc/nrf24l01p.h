@@ -17,19 +17,19 @@
 #include "stm32h7xx_hal.h"
 #include "main.h"
 
-// extern means that the variable is defined elsewhere (current in the main.c file)
+// extern means that the variable is defined elsewhere ( 2023-10-12 in the main.c file)
 extern SPI_HandleTypeDef hspi1;
 /* User Configurations */
 #define NRF24L01P_SPI                     (&hspi1)
 
-#define NRF24L01P_SPI_CS_PIN_PORT         GPIOA
-#define NRF24L01P_SPI_CS_PIN_NUMBER       GPIO_PIN_4
+#define NRF24L01P_SPI_CS_PIN_PORT         GPIOC
+#define NRF24L01P_SPI_CS_PIN_NUMBER       GPIO_PIN_7
 
 #define NRF24L01P_CE_PIN_PORT             GPIOB
-#define NRF24L01P_CE_PIN_NUMBER           GPIO_PIN_0
+#define NRF24L01P_CE_PIN_NUMBER           GPIO_PIN_6
 
 #define NRF24L01P_IRQ_PIN_PORT            GPIOA
-#define NRF24L01P_IRQ_PIN_NUMBER          GPIO_PIN_0
+#define NRF24L01P_IRQ_PIN_NUMBER          GPIO_PIN_8
 
 #define NRF24L01P_PAYLOAD_LENGTH          8     // 1 - 32bytes
 

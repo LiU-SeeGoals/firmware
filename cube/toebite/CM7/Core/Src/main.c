@@ -38,6 +38,7 @@ static GPIO_InitTypeDef GPIO_InitStruct;
 #define HSEM_ID_0 (0U) /* HW semaphore 0*/
 #endif
 #define TRANSMITTER
+// #define RECEIVER
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -152,10 +153,6 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-    // HAL_Delay(2000);
-    // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-    // HAL_Delay(2000);
 #ifdef RECEIVER
 	  // Nothing to do
 #endif
@@ -168,6 +165,9 @@ Error_Handler();
 	  }
 
 	  nrf24l01p_tx_transmit(tx_data);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+    HAL_Delay(10000);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
     HAL_Delay(100);
 #endif
 
@@ -298,19 +298,14 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(SPI_CSN_GPIO_Port, SPI_CSN_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : SPI_IRQ_Pin */
-  GPIO_InitStruct.Pin = SPI_IRQ_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(SPI_IRQ_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_WritePin(SPI_CE_GPIO_Port, SPI_CE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : SPI_CSN_Pin */
   GPIO_InitStruct.Pin = SPI_CSN_Pin;
@@ -319,16 +314,22 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(SPI_CSN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : CE_Pin */
-  GPIO_InitStruct.Pin = CE_Pin;
+  /*Configure GPIO pin : SPI_IRQ_Pin */
+  GPIO_InitStruct.Pin = SPI_IRQ_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(SPI_IRQ_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : SPI_CE_Pin */
+  GPIO_InitStruct.Pin = SPI_CE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(CE_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(SPI_CE_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
