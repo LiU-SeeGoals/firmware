@@ -4,5 +4,8 @@
         "nrf24l01p.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
-    "C_Cpp.default.compilerPath": "/usr/lib/arm-none-eabi/"
+    "C_Cpp.default.compilerPath": "/usr/lib/arm-none-eabi/",
+    "cortex-debug.gdbPath": "/usr/bin/JLinkGDBServer",
+    "cortex-debug.JLinkGDBServerPath": "/usr/bin/JLinkGDBServer",
+    "cortex-debug.stutilPath": "/usr/bin/JLinkGDBServer"
 }

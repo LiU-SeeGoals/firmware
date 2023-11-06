@@ -23,12 +23,14 @@
 /* USER CODE BEGIN Includes */
 
 #include "nrf24l01p.h"
+#include <stdarg.h>
 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 static GPIO_InitTypeDef GPIO_InitStruct;
+int printf_uart(const char *format, ...);
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -50,6 +52,8 @@ static GPIO_InitTypeDef GPIO_InitStruct;
 
 SPI_HandleTypeDef hspi1;
 
+UART_HandleTypeDef huart3;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -58,7 +62,20 @@ SPI_HandleTypeDef hspi1;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
+
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 
 /* USER CODE END PFP */
 
@@ -79,6 +96,23 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
     }
 }
 
+int printf_uart(const char *format, ...){
+  va_list argp;
+  va_start(argp, format);
+  uint8_t buf[256] = {};
+  int length = vsnprintf(buf, 256, format, argp);
+  va_end(argp);
+
+  if (length >= 256 || length < 0) {
+    HAL_UART_Transmit(&huart3, "Err: Message cutoff or bad\n", 27, HAL_MAX_DELAY);
+    return -1;
+  }
+  HAL_UART_Transmit(&huart3, buf, length, HAL_MAX_DELAY);
+  return 0;
+
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -88,7 +122,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  nrf24l01p_tx_init(25000, _1Mbps);
+  nrf24l01p_tx_init(2450, _1Mbps);
 
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
@@ -116,6 +150,8 @@ int main(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   GPIO_InitStruct.Pin = GPIO_PIN_14; // pin D04
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -145,6 +181,7 @@ Error_Handler();
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -166,7 +203,12 @@ Error_Handler();
 
 	  nrf24l01p_tx_transmit(tx_data);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-    HAL_Delay(10000);
+    HAL_Delay(100);
+    // uint8_t tx_buff[]={8,1,2,3,4,5,6,7,8,9};
+    // uint8_t uartbuffer[100]={};
+    // snprintf(uartbuffer, 20, "Hello World!\n");
+    printf_uart("%s%d\n\r", "Hello World: ", 10);
+    // HAL_UART_Transmit(&huart3, uartbuffer, 10, HAL_MAX_DELAY);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
     HAL_Delay(100);
 #endif
@@ -177,6 +219,7 @@ Error_Handler();
   }
   /* USER CODE END 3 */
 }
+
 
 /**
   * @brief System Clock Configuration
@@ -227,8 +270,8 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
@@ -286,6 +329,54 @@ static void MX_SPI1_Init(void)
 }
 
 /**
+  * @brief USART3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART3_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART3_Init 0 */
+
+  /* USER CODE END USART3_Init 0 */
+
+  /* USER CODE BEGIN USART3_Init 1 */
+
+  /* USER CODE END USART3_Init 1 */
+  huart3.Instance = USART3;
+  huart3.Init.BaudRate = 115200;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits = UART_STOPBITS_1;
+  huart3.Init.Parity = UART_PARITY_NONE;
+  huart3.Init.Mode = UART_MODE_TX_RX;
+  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart3.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart3, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart3, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART3_Init 2 */
+
+  /* USER CODE END USART3_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -298,21 +389,21 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SPI_CSN_GPIO_Port, SPI_CSN_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOD, SPI1_CSN_Pin|SPI1_CE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(SPI_CE_GPIO_Port, SPI_CE_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : SPI_CSN_Pin */
-  GPIO_InitStruct.Pin = SPI_CSN_Pin;
+  /*Configure GPIO pins : SPI1_CSN_Pin SPI1_CE_Pin */
+  GPIO_InitStruct.Pin = SPI1_CSN_Pin|SPI1_CE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(SPI_CSN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SPI_IRQ_Pin */
   GPIO_InitStruct.Pin = SPI_IRQ_Pin;
