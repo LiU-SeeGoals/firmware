@@ -1,4 +1,7 @@
-# include "motor.h"
+#include "motor.h"
+#include "main.h" // we need the timer struct from main
+#include "timer.h"
+#include "nrf24l01p.h"
 
 void startMotor(MotorPWM *motor){
     HAL_TIM_PWM_Start(motor->htim, motor->channel);
@@ -58,7 +61,16 @@ void setSpeed(MotorPWM *motor, float percent)
     __HAL_TIM_SET_COMPARE(motor->htim, motor->channel, pwm_speed);
 }
 
+
 int readSpeed(MotorPWM *motor)
 {
-    return HAL_GPIO_ReadPin(motor->readSpeedPinPort, motor->readSpeedPin);
+    // each pusle is one rotation of the motor
+    float radius = 0.1; // meters
+    float PI = 3.1415; // meters
+    float wheelCircumference = 2 * PI * radius; // meters
+
+    extern Timer timer3;
+    HAL_GPIO_ReadPin(motor->readSpeedPinPort, motor->readSpeedPin);
+
+    return 1;
 }

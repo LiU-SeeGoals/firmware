@@ -31,6 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "timer.h"
+
 
 /* USER CODE END Includes */
 
@@ -70,6 +72,7 @@ void Error_Handler(void);
 #define SPI_CE_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+extern Timer timer1;
 
 /* USER CODE END Private defines */
 
