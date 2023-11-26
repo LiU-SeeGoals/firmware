@@ -19,6 +19,6 @@ typedef struct
 void startMotor(MotorPWM *motor);
 void setSpeed(MotorPWM *motor, float percent);
 void breakMotor(MotorPWM *motor);
-int readSpeed(MotorPWM *motor);
+float readSpeed(MotorPWM *motor);
 
 #endif

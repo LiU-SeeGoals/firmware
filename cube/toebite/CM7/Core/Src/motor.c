@@ -62,7 +62,7 @@ void setSpeed(MotorPWM *motor, float percent)
 }
 
 
-int readSpeed(MotorPWM *motor)
+float readSpeed(MotorPWM *motor)
 {
     // each pusle is one rotation of the motor
     float radius = 0.1; // meters
@@ -70,7 +70,24 @@ int readSpeed(MotorPWM *motor)
     float wheelCircumference = 2 * PI * radius; // meters
 
     extern Timer timer3;
-    HAL_GPIO_ReadPin(motor->readSpeedPinPort, motor->readSpeedPin);
+    timer_start(&timer3);
+    // calcuate 100 up and downs
+    uint16_t count_amount = 100;
+    while (count_amount > 0)
+    {
+        if (HAL_GPIO_ReadPin(motor->readSpeedPinPort, motor->readSpeedPin))
+        {
+            count_amount--;
+            while (HAL_GPIO_ReadPin(motor->readSpeedPinPort, motor->readSpeedPin))
+            {
+                // wait for pin to go low
+            }
+        }
+    }
+    uint32_t time = timer_GetElapsedTime(&timer3);
+    timer_stop(&timer3);
+    float speed = wheelCircumference / (float) time;
 
-    return 1;
+
+    return speed;
 }

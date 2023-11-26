@@ -21,10 +21,11 @@ void timer_stop(Timer *timer) {
 }
 
 // Get the elapsed time for a timer in ticks
-uint32_t timer_GetElapsedTime(Timer *timer) {
+float timer_GetElapsedTime(Timer *timer) {
     uint32_t timerMaxCount = __HAL_TIM_GET_AUTORELOAD(timer->htim) + 1;
     uint32_t currentCount = __HAL_TIM_GET_COUNTER(timer->htim);
-    return (overflowCounts[timer->index] * timerMaxCount) + currentCount;
+    // timer counts to 64000, clock freq is 64Mhz and we want to return time in microseconds 
+    return ((overflowCounts[timer->index] * timerMaxCount) + currentCount)/ 64.0;
 }
 
 // Timer period elapsed callback - called on timer overflow
