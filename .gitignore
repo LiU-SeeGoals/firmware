@@ -1,7 +1,3 @@
-*.hex
-*.elf
-*.bin
-*.db
-*.db-shm
-*.db-wal
 build/**
+.DS_Store
+.vscode
