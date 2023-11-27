@@ -38,7 +38,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+int printf_uart(const char *format, ...);
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -72,7 +72,7 @@ void Error_Handler(void);
 #define SPI_CE_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-extern Timer timer1;
+extern Timer timer3;
 
 /* USER CODE END Private defines */
 

@@ -84,7 +84,7 @@ float readSpeed(MotorPWM *motor)
             }
         }
     }
-    uint32_t time = timer_GetElapsedTime(&timer3);
+    uint32_t time = timer_GetElapsedTimeMicro(&timer3);
     timer_stop(&timer3);
     float speed = wheelCircumference / (float) time;
 

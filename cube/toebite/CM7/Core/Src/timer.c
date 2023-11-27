@@ -1,9 +1,13 @@
 // timer.c
 #include "timer.h"
+#include "main.h"
 
 // Array to hold the overflow counts for each timer
 
-volatile static uint32_t overflowCounts[MAX_TIMERS] = {0};
+// with 64 bits we have much time befeore overflow
+// Even with microsecond resolution on our clock
+// 2**64 * 0.000001 / 1000 / 1000 / 60 / 60 / 24 / 365 = 0.5849424173550719 years
+volatile static uint64_t overflowCounts[MAX_TIMERS] = {0};
 
 // Start a timer and reset its overflow count
 void timer_start(Timer *timer) {
@@ -21,11 +25,14 @@ void timer_stop(Timer *timer) {
 }
 
 // Get the elapsed time for a timer in ticks
-float timer_GetElapsedTime(Timer *timer) {
+float timer_GetElapsedTimeMicro(Timer *timer) {
+
+    // prescaler is 64 so we effectily have a 1Mhz timer
+
     uint32_t timerMaxCount = __HAL_TIM_GET_AUTORELOAD(timer->htim) + 1;
     uint32_t currentCount = __HAL_TIM_GET_COUNTER(timer->htim);
-    // timer counts to 64000, clock freq is 64Mhz and we want to return time in microseconds 
-    return ((overflowCounts[timer->index] * timerMaxCount) + currentCount)/ 64.0;
+    uint64_t micros = overflowCounts[timer->index] * timerMaxCount + currentCount;
+    return micros;
 }
 
 // Timer period elapsed callback - called on timer overflow
@@ -38,10 +45,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     }
     if (timerIndex == -1) 
     {
-        print_uart("ERR: Timer not found\r\n");
+        printf_uart("ERR: Timer not found\r\n");
         return; // Timer not found, shouldn't happen
     }
-        
+    uint64_t max_value = 0;
+    max_value = max_value - 3; // force value to become 18446744073709551614
+    if (overflowCounts[timerIndex] > max_value){
+        printf_uart("ERR: Timer overflow!\r\n");
+    }
     overflowCounts[timerIndex]++; // Increment overflow count for this timer
+
+    
 
 }

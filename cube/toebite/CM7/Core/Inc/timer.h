@@ -15,7 +15,7 @@ typedef struct {
 
 
 void timer_start(Timer *timer);
-float timer_GetElapsedTime(Timer *timer);
+float timer_GetElapsedTimeMicro(Timer *timer);
 void timer_stop(Timer *timer);
 
 #endif // TIMER_H
