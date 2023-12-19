@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "motor.h"
 #include "timer.h"
 #include "nrf24l01p.h"
 #include <stdarg.h>
@@ -135,7 +136,9 @@ int printf_uart(const char *format, ...){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+  MotorPWM motor1 = {&htim1, TIM_CHANNEL_4, 0, GPIO_PIN_15, GPIO_PIN_13, GPIO_PIN_0, GPIOD, GPIOD, GPIOE};
   nrf24l01p_tx_init(2450, _1Mbps);
+  startMotor(&motor1);
 
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
@@ -213,6 +216,16 @@ Error_Handler();
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
   while (1)
   {
+    // for (int i = 0; i < 100; i++)
+    // {
+    //   setSpeed(&motor1, i);
+    //   HAL_Delay(100);
+    // }
+    // for (int i = 100; i > 0; i--)
+    // {
+    //   setSpeed(&motor1, i);
+    //   HAL_Delay(100);
+    // }
 #ifdef RECEIVER
 	  // Nothing to do
 #endif
@@ -370,9 +383,9 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 63999;
+  htim1.Init.Prescaler = 63;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 100;
+  htim1.Init.Period = 10000;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -388,7 +401,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 100;
+  sConfigOC.Pulse = 2000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;

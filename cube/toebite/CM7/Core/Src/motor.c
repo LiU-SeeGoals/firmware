@@ -29,6 +29,7 @@ void breakMotor(MotorPWM *motor)
 
 void changeDirection(MotorPWM *motor, int percent)
 {
+    return; // will not work without all pins connected
     if ((motor->reversing && percent >= 0) || (!motor->reversing && percent <= 0))
     {
         while(readSpeed(motor) >= 0){
@@ -58,6 +59,7 @@ void setSpeed(MotorPWM *motor, float percent)
 
     // TODO: How to handle rounding errors, do they even matter?
     uint32_t pwm_speed = motor->htim->Init.Period * percent;
+    printf_uart("pwm_speed: %d\n", pwm_speed);
     __HAL_TIM_SET_COMPARE(motor->htim, motor->channel, pwm_speed);
 }
 
